@@ -62,6 +62,7 @@ plugins=(
   git
   zsh-autosuggestions
   tmux
+  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh

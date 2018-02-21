@@ -7,7 +7,8 @@ function mkd() {
 	mkdir -p "$@" && cd "$_"
 }
 
-function c() {
+# change directory and list directory
+function cl() {
 	cd "$@" && ls
 }
 

@@ -4,11 +4,9 @@
 source ~/dotfiles/zsh/lib/functions.zsh
 
 # file navigation
-alias cl="clear"
 alias mkdir="mkd" 
-alias cd="c"
+alias cl="cl"
 
-alias v="vim"
 alias update="apt update && apt upgrade; apt autoremove"
 alias djangodev='source ~/.virtualenvs/djangodev/bin/activate'
 alias macspoof='bash ~/.bin/macspoof'
