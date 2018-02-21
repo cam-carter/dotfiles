@@ -105,8 +105,14 @@ SAVEHIST=1000
 setopt inc_append_history
 setopt share_history
 
-# aliases & functions
+# custom aliases
 source ~/dotfiles/zsh/lib/aliases.zsh
+# custom functions
+source ~/dotfiles/zsh/lib/functions.zsh
+
+#######################
+### SOURCED PLUGINS ###
+#######################
 
 # zsh-syntax-highlighting
 source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
