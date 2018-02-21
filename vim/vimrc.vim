@@ -73,4 +73,3 @@ nnoremap <space> za
 nnoremap <leader>z zMzvzz
 
 nnoremap vv 0v$
-
