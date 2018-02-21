@@ -2,11 +2,6 @@
 #### ALIASES & FUNCTIONS ####
 #############################
 
-c() {
-	cd $1;
-	ls;
-}
-alias cd="c"
 alias v="vim"
 alias cl="clear"
 
