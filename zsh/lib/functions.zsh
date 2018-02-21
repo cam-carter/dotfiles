@@ -4,7 +4,11 @@
 
 # create new directory and cd into it
 function mkd() {
-	mkdir -p "$@" && cd "$_";
+	mkdir -p "$@" && cd "$_"
+}
+
+function c() {
+	cd "$@" && ls
 }
 
 # parent_up
