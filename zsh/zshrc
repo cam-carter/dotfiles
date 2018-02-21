@@ -63,6 +63,7 @@ plugins=(
   zsh-autosuggestions
   tmux
   vi-mode
+  web-search
 )
 
 source $ZSH/oh-my-zsh.sh
