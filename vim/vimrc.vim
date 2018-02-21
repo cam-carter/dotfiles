@@ -51,5 +51,26 @@ colorscheme solarized
 " Set airline theme
 let g:airline_theme='luna'
 
-" Set vim to display line numbers
-set number
+" General Vim settings
+set number relativenumber
+let mapleader=","
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set cursorline
+
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+nnoremap H 0
+nnoremap L $
+nnoremap J G
+nnoremap K gg
+
+map <tab> %
+
+nnoremap <space> za
+nnoremap <leader>z zMzvzz
+
+nnoremap vv 0v$
+
