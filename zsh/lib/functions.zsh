@@ -35,6 +35,15 @@ function quick_ls() {
 zle -N quick_ls
 bindkey "^l" quick_ls
 
+# quick clear
+# this function clears the terminal and binds it to "^<space>"
+function quick_cl() {
+	BUFFER="clear"
+	zle accept-line
+}
+zle -N quick_cl
+bindkey "^ " quick_cl
+
 # git stage
 # this function adds all changes in the repo, commits them, and then pushes the repo
 function git_stage() {
