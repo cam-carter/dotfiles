@@ -5,7 +5,7 @@ source ~/dotfiles/zsh/lib/functions.zsh
 
 # file navigation
 alias mkdir="mkd" 
-alias cl="cl"
+alias cd="c"
 
 alias update="apt update && apt upgrade; apt autoremove"
 alias djangodev='source ~/.virtualenvs/djangodev/bin/activate'

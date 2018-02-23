@@ -8,7 +8,7 @@ function mkd() {
 }
 
 # change directory and list directory
-function cl() {
+function c() {
 	cd "$@" && ls
 }
 
@@ -24,7 +24,7 @@ bindkey "^k" parent_up
 # goto home
 # this function jumps to home directory and binds it to "^h"
 function goto_home() {
-	BUFFER="cd ~"$BUFFER
+	BUFFER="cd ~"
 	zle end-of-line
 	zle accept-line
 }
