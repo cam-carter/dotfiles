@@ -1,0 +1,65 @@
+#!/bin/bash
+
+echo "     _____          ___                       ___                                   ___           ___      "
+echo "    /  /::\        /  /\          ___        /  /\      ___                        /  /\         /  /\     "
+echo "   /  /:/\:\      /  /::\        /  /\      /  /:/_    /  /\                      /  /:/_       /  /:/_    "
+echo "  /  /:/  \:\    /  /:/\:\      /  /:/     /  /:/ /\  /  /:/      ___     ___    /  /:/ /\     /  /:/ /\   "
+echo " /__/:/ \__\:|  /  /:/  \:\    /  /:/     /  /:/ /:/ /__/::\     /__/\   /  /\  /  /:/ /:/_   /  /:/ /::\  "
+echo " \  \:\ /  /:/ /__/:/ \__\:\  /  /::\    /__/:/ /:/  \__\/\:\__  \  \:\ /  /:/ /__/:/ /:/ /\ /__/:/ /:/\:\ "
+echo "  \  \:\  /:/  \  \:\ /  /:/ /__/:/\:\   \  \:\/:/      \  \:\/\  \  \:\  /:/  \  \:\/:/ /:/ \  \:\/:/~/:/ "
+echo "   \  \:\/:/    \  \:\  /:/  \__\/  \:\   \  \::/        \__\::/   \  \:\/:/    \  \::/ /:/   \  \::/ /:/  "
+echo "    \  \::/      \  \:\/:/        \  \:\   \  \:\        /__/:/     \  \::/      \  \:\/:/     \__\/ /:/   "
+echo "     \__\/        \  \::/          \__\/    \  \:\       \__\/       \__\/        \  \::/        /__/:/    "
+echo "                   \__\/                     \__\/                                 \__\/         \__\/     "
+printf "\n"
+
+#################################################################
+##  Prompts the user to install a missing package              ##
+##  Globals:                                                   ##
+##  	None                                                   ##
+##  Arguments:                                                 ##
+##  	$1 = returned from check_for_package() = package name  ##
+##  Returns:                                                   ##
+##  	installs package using default package manager         ##
+#################################################################
+install_missing_package() {
+	# prompt user to install missing package
+	echo -n "$1 is not installed. Would you like to install it? [Y/n]" >&2
+	# saves stty config so user does not have to hit return to enter answer
+	old_stty_cfg=$(stty -g)
+	stty raw -echo ; answer=$( while ! head -c 1 | grep -i '[ny]' ; do true ; done ) ; stty $old_stty_cfg && echo
+	if echo "$answer" | grep -iq "^y" ; then
+		# checks for system's default package manager and installs package
+		if [ -x "$(command -v apt)" ]; then
+			sudo apt install $1 -y
+		elif [ -x "$(command -v brew)" ]; then
+			brew install $1 -y
+		elif [ -x "$(command -v pkg)" ]; then
+			sudo pkg install $1
+		elif [ -x "$(command -v pacman)" ]; then
+			sudo pacman -S $1
+		else
+			echo "Couldn't find your default package manager. Install $1 using your default package manager, and then run ./deploy again."
+		fi
+	fi
+}
+
+#############################################################
+##  Checks to see if necessary package is installed        ##
+##  Globals:                                               ##
+##  	None                                               ##
+##  Arguments:                                             ##
+##  	$1 = package name                                  ##
+##  Returns:                                               ##
+##  	passes $1 to install_missing_package() if missing  ##
+#############################################################
+check_for_package() {
+	echo "Checking to see if $1 is installed..."
+	if ! [ -x "$(command -v $1)" ]; then
+		install_missing_package $1
+	else
+		echo "$1 is already installed."
+	fi
+}
+
+
