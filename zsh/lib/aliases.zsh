@@ -3,11 +3,15 @@
 #################
 source ~/dotfiles/zsh/lib/functions.zsh
 
-# file navigation
-alias mkdir="mkd" 
+###
+## File Navigation
+#
+
+# makes a directory and switches into it
+alias mkdir="mkd"
+# changes directory and lists contents
 alias cd="c"
 
-alias update="apt update && apt upgrade; apt autoremove"
 alias djangodev='source ~/.virtualenvs/djangodev/bin/activate'
 alias macspoof='bash ~/.bin/macspoof'
 alias pc='proxychains'
