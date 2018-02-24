@@ -62,4 +62,69 @@ check_for_package() {
 	fi
 }
 
+###############################################################
+##  Checks if zsh is default shell and sets as default if !  ##
+##  Globals:                                                 ##       
+##  	None                                                 ##
+##  Arugments:                                               ##
+##  	None                                                 ##
+##  Returns:                                                 ##
+##  	sets zsh to default shell                            ##
+###############################################################
+check_default_shell() {
+	if [ -z "${SHELL##*zsh*}" ]; then
+		echo "Default shell already set to zsh."
+	else
+		echo -n "Default shell is not zsh... you wanna make it the default? I reccomend it ;) [Y/n]"
+		old_stty_cfg$(stty -g)
+		stty raw -echo ; answer=$( while ! head -c 1 | grep -i '[ny]' ; do true ; done ) ; stty $old_stty_cfg && echo
+		if echo "$answer" | grep -iq "^y" ; then
+			chsh -s $(which zsh)
+		else
+			echo "None of this stuff's gonna work the way it's supposed to... I suggest you reconsider your decision."
+		fi
+	fi
+}
+
+echo "You have initiated the deployment of a very potent collection of tools onto your system: vim, tmux, and zsh..."
+printf "\n"
+echo "First thing's first. We've gotta check and see if you already have some of these awesome tools. If you do, it only makes you cooler."
+echo "Second. If you don't have some of these tools, then we'll just have to install them won't we?"
+echo "Third. We have to change your default shell to zsh. You don't have to if you don't want to, but it's higly recommended if you want everything to work nicely together."
+
+echo "Shall we get to it then? [Y/n]"
+old_stty_cfg$(stty -g)
+stty raw -echo ; answer=$(while ! head -c 1 | grep -i '[ny]' ; do true ; done ) ; stty $old_stty_cfg && echo
+if echo "$answer" | grep -iq "^y" ; then
+	echo
+else
+	echo "Well what's the point then? Seeya... :("
+	exit 0
+fi
+
+check_for_package zsh
+echo
+check_for_package vim
+echo
+check_for_package tmux
+echo 
+check_default_shell
+echo
+
+echo -n "You wanna backup your current dotfiles? Is it worth it? [Y/n]"
+old_stty_cfg$(stty -g)
+stty raw -echo ; answer=$(while ! head -c 1 | grep -i '[ny]' ; do true ; done ) ; stty $old_stty_cfg && echo
+if echo $answer | grep -iq "^y" ; then
+	mv ~/.zshrc ~/.zshrc.old
+	mv ~/.tmux.conf ~/.tmux.conf.old
+	mv ~/.vimrc ~/.vimrc.old
+else
+	echo -e "Oh that's brave... I guess we won't back up those files."
+fi
+
+printf "source '~/dotfiles/zsh/lib/zshrc-manager.zsh'" > ~/.zshrc
+printf "source ~/dotfiles/vim/vimrc.vim" > ~/.vimrc
+printf "source-file ~/dotfiles/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
+echo
+
 
