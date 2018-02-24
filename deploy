@@ -1,27 +1,27 @@
 #!/bin/bash
 
-echo "     _____          ___                       ___                                   ___           ___      "
-echo "    /  /::\        /  /\          ___        /  /\      ___                        /  /\         /  /\     "
-echo "   /  /:/\:\      /  /::\        /  /\      /  /:/_    /  /\                      /  /:/_       /  /:/_    "
-echo "  /  /:/  \:\    /  /:/\:\      /  /:/     /  /:/ /\  /  /:/      ___     ___    /  /:/ /\     /  /:/ /\   "
-echo " /__/:/ \__\:|  /  /:/  \:\    /  /:/     /  /:/ /:/ /__/::\     /__/\   /  /\  /  /:/ /:/_   /  /:/ /::\  "
-echo " \  \:\ /  /:/ /__/:/ \__\:\  /  /::\    /__/:/ /:/  \__\/\:\__  \  \:\ /  /:/ /__/:/ /:/ /\ /__/:/ /:/\:\ "
-echo "  \  \:\  /:/  \  \:\ /  /:/ /__/:/\:\   \  \:\/:/      \  \:\/\  \  \:\  /:/  \  \:\/:/ /:/ \  \:\/:/~/:/ "
-echo "   \  \:\/:/    \  \:\  /:/  \__\/  \:\   \  \::/        \__\::/   \  \:\/:/    \  \::/ /:/   \  \::/ /:/  "
-echo "    \  \::/      \  \:\/:/        \  \:\   \  \:\        /__/:/     \  \::/      \  \:\/:/     \__\/ /:/   "
-echo "     \__\/        \  \::/          \__\/    \  \:\       \__\/       \__\/        \  \::/        /__/:/    "
-echo "                   \__\/                     \__\/                                 \__\/         \__\/     "
+echo "                   _____          ___                       ___                                   ___           ___      "
+echo "                  /  /::\        /  /\          ___        /  /\      ___                        /  /\         /  /\     "
+echo "                 /  /:/\:\      /  /::\        /  /\      /  /:/_    /  /\                      /  /:/_       /  /:/_    "
+echo "                /  /:/  \:\    /  /:/\:\      /  /:/     /  /:/ /\  /  /:/      ___     ___    /  /:/ /\     /  /:/ /\   "
+echo "               /__/:/ \__\:|  /  /:/  \:\    /  /:/     /  /:/ /:/ /__/::\     /__/\   /  /\  /  /:/ /:/_   /  /:/ /::\  "
+echo "               \  \:\ /  /:/ /__/:/ \__\:\  /  /::\    /__/:/ /:/  \__\/\:\__  \  \:\ /  /:/ /__/:/ /:/ /\ /__/:/ /:/\:\ "
+echo "                \  \:\  /:/  \  \:\ /  /:/ /__/:/\:\   \  \:\/:/      \  \:\/\  \  \:\  /:/  \  \:\/:/ /:/ \  \:\/:/~/:/ "
+echo "                 \  \:\/:/    \  \:\  /:/  \__\/  \:\   \  \::/        \__\::/   \  \:\/:/    \  \::/ /:/   \  \::/ /:/  "
+echo "                  \  \::/      \  \:\/:/        \  \:\   \  \:\        /__/:/     \  \::/      \  \:\/:/     \__\/ /:/   "
+echo "                   \__\/        \  \::/          \__\/    \  \:\       \__\/       \__\/        \  \::/        /__/:/    "
+echo "                                 \__\/                     \__\/                                 \__\/         \__\/     "
 
 printf "\n"
 printf "\n"
 printf "\n"
 
-echo "     _/\/\___________________ "
-echo "    _/\/\________/\/\__/\/\_  "
-echo "   _/\/\/\/\____/\/\__/\/\_   "
-echo "  _/\/\__/\/\____/\/\/\/\_    "
-echo " _/\/\/\/\__________/\/\_     "
-echo "_____________/\/\/\/\___      "
+echo "                                                    _/\/\___________________ "
+echo "                                                   _/\/\________/\/\__/\/\_  "
+echo "                                                  _/\/\/\/\____/\/\__/\/\_   "
+echo "                                                 _/\/\__/\/\____/\/\/\/\_    "
+echo "                                                _/\/\/\/\__________/\/\_     "
+echo "                                               _____________/\/\/\/\___      "
 
 
 printf "\n"
@@ -40,13 +40,14 @@ echo "   \:\  \           /:/  /        /:/  /              \:\  \           /:/
 echo "    \:\__\         /:/  /        /:/  /                \:\__\         /:/  /       |:|  |                      \:\__\        |:|  |     "
 echo "     \/__/         \/__/         \/__/                  \/__/         \/__/         \|__|                       \/__/         \|__|     "
 
-
-
+printf "\n"
+printf "\n"
+printf "\n"
 
 #################################################################
 ##  Prompts the user to install a missing package              ##
 ##  Globals:                                                   ##
-##  	None                                                   ##
+    	OLD_STTY=$(stty -g)                                    ##
 ##  Arguments:                                                 ##
 ##  	$1 = returned from check_for_package() = package name  ##
 ##  Returns:                                                   ##
@@ -55,9 +56,11 @@ echo "     \/__/         \/__/         \/__/                  \/__/         \/__
 install_missing_package() {
 	# prompt user to install missing package
 	echo -n "$1 is not installed. Would you like to install it? [Y/n]" >&2
-	# saves stty config so user does not have to hit return to enter answer
-	old_stty_cfg=$(stty -g)
-	stty raw -echo ; answer=$( while ! head -c 1 | grep -i '[ny]' ; do true ; done ) ; stty $old_stty_cfg && echo
+	# sets stty config to take in put without echo
+	stty raw -echo
+	answer=$( while ! head -c 1 | grep -i '[ny]' ; do true ; done )
+	# resets old stty config
+	stty $OLD_STTY && echo
 	if echo "$answer" | grep -iq "^y" ; then
 		# checks for system's default package manager and installs package
 		if [ -x "$(command -v apt)" ]; then
@@ -72,6 +75,7 @@ install_missing_package() {
 			echo "Couldn't find your default package manager. Install $1 using your default package manager, and then run ./deploy again."
 		fi
 	fi
+	echo
 }
 
 #############################################################
@@ -90,6 +94,7 @@ check_for_package() {
 	else
 		echo "$1 is already installed."
 	fi
+	echo
 }
 
 ###############################################################
@@ -106,14 +111,16 @@ check_default_shell() {
 		echo "Default shell already set to zsh."
 	else
 		echo -n "Default shell is not zsh... you wanna make it the default? I reccomend it ;) [Y/n]"
-		old_stty_cfg$(stty -g)
-		stty raw -echo ; answer=$( while ! head -c 1 | grep -i '[ny]' ; do true ; done ) ; stty $old_stty_cfg && echo
+		stty raw -echo
+		answer=$( while ! head -c 1 | grep -i '[ny]' ; do true ; done )
+		stty $OLD_STTY && echo
 		if echo "$answer" | grep -iq "^y" ; then
 			chsh -s $(which zsh)
 		else
 			echo "None of this stuff's gonna work the way it's supposed to... I suggest you reconsider your decision."
 		fi
 	fi
+	echo
 }
 
 echo "You have initiated the deployment of a very potent collection of tools onto your system: vim, tmux, and zsh..."
@@ -123,8 +130,9 @@ echo "Second. If you don't have some of these tools, then we'll just have to ins
 echo "Third. We have to change your default shell to zsh. You don't have to if you don't want to, but it's higly recommended if you want everything to work nicely together."
 
 echo "Shall we get to it then? [Y/n]"
-old_stty_cfg$(stty -g)
-stty raw -echo ; answer=$(while ! head -c 1 | grep -i '[ny]' ; do true ; done ) ; stty $old_stty_cfg && echo
+stty raw -echo
+answer=$(while ! head -c 1 | grep -i '[ny]' ; do true ; done )
+stty $OLD_STTY && echo
 if echo "$answer" | grep -iq "^y" ; then
 	echo
 else
@@ -132,18 +140,21 @@ else
 	exit 0
 fi
 
+#############################
+##  Checking for packages  ##
+#############################
 check_for_package zsh
-echo
 check_for_package vim
-echo
 check_for_package tmux
-echo 
 check_default_shell
-echo
 
+#############################################
+##  Prompt user to backup system dotfiles  ##
+#############################################
 echo -n "You wanna backup your current dotfiles? Is it worth it? [Y/n]"
-old_stty_cfg$(stty -g)
-stty raw -echo ; answer=$(while ! head -c 1 | grep -i '[ny]' ; do true ; done ) ; stty $old_stty_cfg && echo
+stty raw -echo
+answer=$(while ! head -c 1 | grep -i '[ny]' ; do true ; done )
+stty $OLD_STTY && echo   
 if echo $answer | grep -iq "^y" ; then
 	mv ~/.zshrc ~/.zshrc.old
 	mv ~/.tmux.conf ~/.tmux.conf.old
@@ -152,9 +163,11 @@ else
 	echo -e "Oh that's brave... I guess we won't back up those files."
 fi
 
-printf "source '~/dotfiles/zsh/lib/zshrc-manager.zsh'" > ~/.zshrc
-printf "source ~/dotfiles/vim/vimrc.vim" > ~/.vimrc
-printf "source-file ~/dotfiles/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
+printf "source $HOME/dotfiles/zsh/lib/zshrc-manager.sh" > ~/.zshrc
+printf "source $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
+printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 echo
 
-
+echo | source ~/.zshrc
+echo | source ~/.vimrc
+echo | tmux source-file ~/.tmux.conf 

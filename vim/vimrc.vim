@@ -1,7 +1,7 @@
 set nocompatible		" be iMproved, required
 filetype off			" required
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=$HOME/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
@@ -68,3 +68,9 @@ nnoremap <space> za
 nnoremap <leader>z zMzvzz
 
 nnoremap vv 0v$
+
+" exit INSERT mode without moving cursor (press fj or jf)
+set timeoutlen=300 
+inoremap fj <Esc>l
+inoremap jf <Esc>l
+
