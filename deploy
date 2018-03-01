@@ -125,10 +125,10 @@ check_default_shell() {
 
 echo "You have initiated the deployment of a very potent collection of tools onto your system: vim, tmux, and zsh..."
 printf "\n"
-echo "First thing's first. We've gotta check and see if you already have some of these awesome tools. If you do, it only makes you cooler."
-echo "Second. If you don't have some of these tools, then we'll just have to install them won't we?"
-echo "Third. We have to change your default shell to zsh. You don't have to if you don't want to, but it's higly recommended if you want everything to work nicely together."
-
+echo "[1] We've gotta check and see if you already have some of these cool tools. If you do, it only makes you cooler."
+echo "[2] If you don't have some of these tools, then we'll just have to install them won't we?"
+echo "[3] We have to change your default shell to zsh. You don't have to if you don't want to, but it's higly recommended if you want everything to work nicely together."
+printf "\n"
 echo "Shall we get to it then? [Y/n]"
 stty raw -echo
 answer=$(while ! head -c 1 | grep -i '[ny]' ; do true ; done )
@@ -168,6 +168,13 @@ printf "source $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
 printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 echo
 
-echo | source ~/.zshrc
-echo | source ~/.vimrc
-echo | tmux source-file ~/.tmux.conf 
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git pull && git submodule update --init --recursive
+vim +PluginInstall +qall
+
+{
+	source ~/.zshrc
+	source ~/.vimrc
+	tmux source-file ~/.tmux.conf
+} &> /dev/null
+
