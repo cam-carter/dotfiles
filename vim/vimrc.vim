@@ -13,16 +13,12 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
-Plugin 'kien/ctrlp.vim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'valloric/youcompleteme'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'mattn/emmet-vim'
 Plugin 'townk/vim-autoclose'
-Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'dylanaraps/wal.vim'
 
 call vundle#end()		" required
 filetype plugin indent on	" required
@@ -38,11 +34,11 @@ filetype plugin indent on	" required
 " see :h vundle for more details or wiki for FAQ
 " Put you non-Plugin stuff after this line
 
-" Enable solarized theme
 syntax enable
-set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme wal
+
+" set vimtex default viewer
+let g:vimtex_view_method='mupdf'
 
 " Set airline theme
 let g:airline_theme='luna'
@@ -50,6 +46,7 @@ let g:airline_theme='luna'
 " General Vim settings
 set number relativenumber
 let mapleader=","
+let maplocalleader="\\"
 set autoindent
 set tabstop=4
 set shiftwidth=4
