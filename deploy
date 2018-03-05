@@ -74,6 +74,11 @@ install_missing_package() {
 		else
 			echo "Couldn't find your default package manager. Install $1 using your default package manager, and then run ./deploy again."
 		fi
+	elif echo "$answer" | grep -iq "^n" ; then
+		echo "Package will not be installed."
+	else
+		echo "Exiting program."
+		exit 0
 	fi
 	echo
 }
@@ -117,11 +122,23 @@ check_default_shell() {
 		if echo "$answer" | grep -iq "^y" ; then
 			chsh -s $(which zsh)
 		else
-			echo "None of this stuff's gonna work the way it's supposed to... I suggest you reconsider your decision."
+			echo -n "Are you absolutely sure about this?"
+			stty raw -echo
+			answer=$( while ! head -c 1 | grep -i '[ny]' ; do true ; done )
+			stty $OLD_STTY $$ echo
+			if echo "$answer" | grep -iq "^y" ; then
+				chsh -s $(which zsh)
+			else
+				echo "None of this stuff's gonna work the way it's supposed to... I suggest you reconsider your decision."
+			fi
 		fi
 	fi
 	echo
 }
+
+if [ $? -ne 0 ]; then
+	exit 1
+fi
 
 echo "You have initiated the deployment of a very potent collection of tools onto your system: vim, tmux, and zsh..."
 printf "\n"
