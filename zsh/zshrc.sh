@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=~/dotfiles/zsh/plugins/oh-my-zsh
+export ZSH=$HOME/dotfiles/zsh/plugins/oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -94,7 +94,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vim ~/dotfiles/zsh/zshrc"
+alias zshconfig="vim $HOME/dotfiles/zsh/zshrc.sh"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 ######################
@@ -102,19 +102,19 @@ alias zshconfig="vim ~/dotfiles/zsh/zshrc"
 ######################
 
 # variables
-HISTFILE=~/.zsh_history
+HISTFILE=$HOME/.zsh_history
 SAVEHIST=1000
 setopt inc_append_history
 setopt share_history
 
 # custom aliases & functions
-source ~/dotfiles/zsh/lib/aliases.zsh
+source $HOME/dotfiles/zsh/lib/aliases.zsh
 
 #######################
 ### SOURCED PLUGINS ###
 #######################
 
 # zsh-syntax-highlighting
-source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # zsh-autosuggestions
-source ~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

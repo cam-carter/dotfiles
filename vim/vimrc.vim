@@ -37,9 +37,6 @@ filetype plugin indent on	" required
 syntax enable
 colorscheme wal
 
-" set vimtex default viewer
-let g:vimtex_view_method='mupdf'
-
 " Set airline theme
 let g:airline_theme='luna'
 

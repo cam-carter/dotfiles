@@ -8,5 +8,5 @@ else
 fi
 
 echo "Updating configuration..."
-(cd ~/dotfiles && git pull && git submodule update --init --recursive)
+(cd $HOME/dotfiles && git pull && git submodule update --init --recursive)
 source $HOME/dotfiles/zsh/zshrc.sh
