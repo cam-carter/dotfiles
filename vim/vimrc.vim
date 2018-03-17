@@ -1,38 +1,10 @@
 set nocompatible		" be iMproved, required
-filetype off			" required
 set encoding=utf-8
 
-set rtp+=$HOME/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-surround'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'mattn/emmet-vim'
-Plugin 'townk/vim-autoclose'
-Plugin 'dylanaraps/wal.vim'
-
-call vundle#end()		" required
+execute pathogen#infect()
 filetype plugin indent on	" required
-" To ignore plugin indent changes, instead use:
-" filetype plugin on
-"
-" Brief help
-" :PluginList		- lists configred plugins
-" :PluginInstall	- installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foor	- searches for foo; append `!` to refresh local cache
-" :PluginClean		- confirms removal of unused plguins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put you non-Plugin stuff after this line
+
+set spell spelllang=en_us
 
 syntax enable
 colorscheme wal
