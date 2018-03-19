@@ -1,13 +1,16 @@
 set nocompatible		" be iMproved, required
 set encoding=utf-8
 
-execute pathogen#infect()
+execute pathogen#infect('bundle/{}', '~/dotfiles/vim/.vim/bundle')
 filetype plugin indent on	" required
 
 set spell spelllang=en_us
 
 syntax enable
 colorscheme wal
+hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
+hi CursorColumn cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
+nnoremap <leader>c set cursorline! cursorcolumn!<CR>
 
 " Set airline theme
 let g:airline_theme='luna'

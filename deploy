@@ -156,9 +156,9 @@ printf "source $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
 printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 echo
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-git pull && git submodule update --init --recursive
-vim +PluginInstall +qall
+(git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim)
+(git pull && git submodule update --init --recursive)
+(vim +PluginInstall +qall)
 
 {
 	source ~/.zshrc
