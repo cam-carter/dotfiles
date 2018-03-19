@@ -156,13 +156,11 @@ printf "source $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
 printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 echo
 
-(git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim)
+(mkdir -p ~/.vim/autload ~/.vim/bundle && curl -LSso ~/.vim/autload/pathogen.vim https://tpo.pe/pathogen.vim)
 (git pull && git submodule update --init --recursive)
-(vim +PluginInstall +qall)
 
 {
 	source ~/.zshrc
 	source ~/.vimrc
 	tmux source-file ~/.tmux.conf
 } &> /dev/null
-
