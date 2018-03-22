@@ -1,13 +1,12 @@
 set nocompatible		" be iMproved, required
 set encoding=utf-8
 
-execute pathogen#infect('bundle/{}', '$HOME/dotfiles/vim/bundle')
+execute pathogen#infect('bundle/{}', '~/dotfiles/vim/bundle')
 filetype plugin indent on	" required
 
 set spell spelllang=en_us
 
 syntax enable
-colorscheme wal
 set background=dark
 hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
@@ -21,8 +20,8 @@ set number relativenumber
 let mapleader=","
 let maplocalleader="\\"
 set autoindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set cursorline
 
 let g:indent_guides_enable_on_vim_startup=1
