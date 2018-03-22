@@ -31,15 +31,6 @@
 [submodule "vim/.vim/bundle/vim-indent-guides"]
 	path = vim/.vim/bundle/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides
-[submodule "vim/bundle/wal"]
-	path = vim/bundle/wal
-	url = https://github.com/dylanaraps/wal
-[submodule "vim/bundle/colorschemes"]
-	path = vim/bundle/colorschemes
-	url = https://github.com/flazz/vim-colorschemes.git
 [submodule "tmux/plugins/tmux-yank"]
 	path = tmux/plugins/tmux-yank
 	url = https://github.com/tmux-plugins/tmux-yank
-[submodule "vim/bundle/vim-grammarous"]
-	path = vim/bundle/vim-grammarous
-	url = https://github.com/rhysd/vim-grammarous

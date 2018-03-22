@@ -156,8 +156,9 @@ printf "source $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
 printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 echo
 
-(mkdir -p ~/.vim/autload ~/.vim/bundle && curl -LSso ~/.vim/autload/pathogen.vim https://tpo.pe/pathogen.vim)
+(mkdir -p ~/.vim/autload && curl -LSso ~/.vim/autload/pathogen.vim https://tpo.pe/pathogen.vim)
 (git pull && git submodule update --init --recursive)
+(cp -rf ~/dotfiles/vim/.vim/bundle ~/.vim/)
 
 {
 	source ~/.zshrc

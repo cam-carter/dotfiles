@@ -1,7 +1,7 @@
 set nocompatible		" be iMproved, required
 set encoding=utf-8
 
-execute pathogen#infect('bundle/{}', '~/dotfiles/vim/bundle')
+execute pathogen#infect()
 filetype plugin indent on	" required
 
 set spell spelllang=en_us
@@ -23,11 +23,6 @@ set autoindent
 set tabstop=2
 set shiftwidth=2
 set cursorline
-
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=blue ctermbg=blue
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=green
 
 nnoremap n nzzzv
 nnoremap N Nzzzv
