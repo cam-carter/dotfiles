@@ -15,15 +15,16 @@ printf "\n"
 printf "\n"
 printf "\n"
 
-#################################################################
-##  Prompts the user to install a missing package              ##
-##  Globals:                                                   ##
+###############################################################
+##  Prompts the user to install a missing package            ##
+##  Globals:                                                 ##
     	OLD_STTY=$(stty -g)                                    ##
-##  Arguments:                                                 ##
+##  Arguments:                                               ##
 ##  	$1 = returned from check_for_package() = package name  ##
-##  Returns:                                                   ##
+##  Returns:                                                 ##
 ##  	installs package using default package manager         ##
-#################################################################
+###############################################################
+
 install_missing_package() {
 	# prompt user to install missing package
 	echo -n "$1 is not installed. Would you like to install it? [Y/n]" >&2
@@ -54,15 +55,16 @@ install_missing_package() {
 	echo
 }
 
-#############################################################
-##  Checks to see if necessary package is installed        ##
-##  Globals:                                               ##
+###########################################################
+##  Checks to see if necessary package is installed      ##
+##  Globals:                                             ##
 ##  	None                                               ##
-##  Arguments:                                             ##
+##  Arguments:                                           ##
 ##  	$1 = package name                                  ##
-##  Returns:                                               ##
+##  Returns:                                             ##
 ##  	passes $1 to install_missing_package() if missing  ##
-#############################################################
+###########################################################
+
 check_for_package() {
 	echo "Checking to see if $1 is installed..."
 	if ! [ -x "$(command -v $1)" ]; then
@@ -76,12 +78,13 @@ check_for_package() {
 ###############################################################
 ##  Checks if zsh is default shell and sets as default if !  ##
 ##  Globals:                                                 ##       
-##  	None                                                 ##
+##  	None                                                   ##
 ##  Arugments:                                               ##
-##  	None                                                 ##
+##  	None                                                   ##
 ##  Returns:                                                 ##
-##  	sets zsh to default shell                            ##
+##  	sets zsh to default shell                              ##
 ###############################################################
+
 check_default_shell() {
 	if [ -z "${SHELL##*zsh*}" ]; then
 		echo "Default shell already set to zsh."
@@ -131,6 +134,7 @@ fi
 #############################
 ##  Checking for packages  ##
 #############################
+
 check_for_package zsh
 check_for_package vim
 check_for_package tmux
@@ -139,6 +143,7 @@ check_default_shell
 #############################################
 ##  Prompt user to backup system dotfiles  ##
 #############################################
+
 echo -n "You wanna backup your current dotfiles? Is it worth it? [Y/n]"
 stty raw -echo
 answer=$(while ! head -c 1 | grep -i '[ny]' ; do true ; done )
@@ -156,9 +161,18 @@ printf "source $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
 printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 echo
 
+#################################################
+##  Download pathogen & link bundled plugins  ##
+#################################################
+
 (mkdir -p ~/.vim/autload && curl -LSso ~/.vim/autload/pathogen.vim https://tpo.pe/pathogen.vim)
+(mkdir -p ~/.vim/bundle && ln -s ~/dotfiles/vim/.vim/bundle ~/.vim/bundle)
+# update repo and submodules
 (git pull && git submodule update --init --recursive)
-(cp -rf ~/dotfiles/vim/.vim/bundle ~/.vim/)
+
+###########################
+##  Update new dotfiles  ##
+###########################
 
 {
 	source ~/.zshrc
