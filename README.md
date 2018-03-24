@@ -2,6 +2,8 @@
 
 This repo contains my dotfile configurations. It also contains a deployment script to install Vim, zsh, and tmux, if you do not have them already. The included software and there configuration files are meant to be a lightweight toolkit usable on any UNIX-based machine.
 
+If you like these dotfiles so much so that you fork the repo for yourself, go right ahead! Feel free to let me know of any fun and interesting functions you come up with.
+
 ## Installation
 To install and deploy, copy and paste the following commands into your terminal:
 ```
@@ -9,14 +11,13 @@ cd ~ && git clone https://github.com/cam-carter/dotfiles
 cd dotfiles && ./deploy
 ```
 
-You don't have to worry about updated these configuration files everytime the master branch is updated either. The following command, found in `~/dotfiles/zsh/lib/zshrc-manager.sh`, updates the main git repository and the included submodules whenever a new terminal is launched:
+### Keeping things up to date.
+You don't have to worry about updating these configuration files every time the master branch is changed. The following command, found in `~/dotfiles/zsh/lib/zshrc-manager.sh`, updates the main git repository and the included submodules whenever a new terminal is launched:
 ```
 echo "Updating configuration..."
 (cd $HOME/dotfiles && git pull && git submodule update --init --recursive)
 source $HOME/dotfiles/zsh/zshrc.sh
 ```
-
-If you like these dotfiles so much so that you fork the repo for yourself, go right ahead! Feel free to let me know of any fun and interesting functions you come up with.
 
 ## Included Software
 
@@ -33,6 +34,8 @@ To add new plugins to Vim you can either place them inside `~/.vim/bundle` or yo
 cd ~/dotfiles/vim/.vim/bundle
 git submodule add https://github.com/tpope/vim-fugitive
 ```
+
+The plugins are currently sourced using a symbolic link between `~/.vim/bundle` and `~/dotfiles/vim/.vim/bundle`.
 
 ### Zsh
 Zsh (Z shell) is a Unix shell that can be used as a powerful command interpreter for shell scripting. The first version of Zsh was written by Paul Falstad in 1990. It makes a valueable resource when you're trapped inside of the a CLI all day.
