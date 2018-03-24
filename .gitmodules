@@ -10,30 +10,30 @@
 [submodule "vim/.vim/vim-pathogen"]
 	path = vim/.vim/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
-[submodule "vim/.vim/bundle/goyo.vim"]
-	path = vim/.vim/bundle/goyo.vim
+[submodule "vim/bundle/goyo.vim"]
+	path = vim/bundle/goyo.vim
 	url = https://github.com/junegunn/goyo.vim
-[submodule "vim/.vim/bundle/vim-surround"]
-	path = vim/.vim/bundle/vim-surround
+[submodule "vim/bundle/vim-surround"]
+	path = vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround
-[submodule "vim/.vim/bundle/vim-airline"]
-	path = vim/.vim/bundle/vim-airline
+[submodule "vim/bundle/vim-airline"]
+	path = vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline
-[submodule "vim/.vim/bundle/vim-airline-themes"]
-	path = vim/.vim/bundle/vim-airline-themes
+[submodule "vim/bundle/vim-airline-themes"]
+	path = vim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
-[submodule "vim/.vim/bundle/vim-fugitive"]
-	path = vim/.vim/bundle/vim-fugitive
+[submodule "vim/bundle/vim-fugitive"]
+	path = vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
-[submodule "vim/.vim/bundle/vim-rails"]
-	path = vim/.vim/bundle/vim-rails
+[submodule "vim/bundle/vim-rails"]
+	path = vim/bundle/vim-rails
 	url = https://github.com/tpope/vim-rails
-[submodule "vim/.vim/bundle/vim-indent-guides"]
-	path = vim/.vim/bundle/vim-indent-guides
+[submodule "vim/bundle/vim-indent-guides"]
+	path = vim/bundle/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides
 [submodule "tmux/plugins/tmux-yank"]
 	path = tmux/plugins/tmux-yank
 	url = https://github.com/tmux-plugins/tmux-yank
-[submodule "vim/.vim/bundle/nerdtree"]
-	path = vim/.vim/bundle/nerdtree
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree

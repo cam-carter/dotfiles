@@ -12,7 +12,7 @@ cd dotfiles && ./deploy
 ```
 
 ### Keeping things up to date.
-You don't have to worry about updating these configuration files every time the master branch is changed. The following command, found in `~/dotfiles/zsh/lib/zshrc-manager.sh`, updates the main git repository and the included submodules whenever a new terminal is launched:
+You don't have to worry about updating these configuration files every time the master branch is changed. The following few lines of code, found in `~/dotfiles/zsh/lib/zshrc-manager.sh`, updates the main git repository and the included submodules whenever a new terminal is launched:
 ```
 echo "Updating configuration..."
 (cd $HOME/dotfiles && git pull && git submodule update --init --recursive)
