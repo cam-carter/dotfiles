@@ -15,8 +15,13 @@ nnoremap <leader>c set cursorline! cursorcolumn!<CR>
 " Set airline theme
 let g:airline_theme='luna'
 
-" Open NERDTree when vim starts up
-autocmd vimenter * NERDTree
+autocmd StdinReadPre * let s:std_in=1
+" Open NERDTree when vim starts up on opening a directory
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" Close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+map <C-n> :NERDTreeToggle<CR>
 
 " General Vim settings
 set number relativenumber

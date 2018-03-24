@@ -166,7 +166,7 @@ echo
 #################################################
 
 (mkdir -p ~/.vim/autload && curl -LSso ~/.vim/autload/pathogen.vim https://tpo.pe/pathogen.vim)
-(mkdir -p ~/.vim/bundle && ln -s ~/dotfiles/vim/.vim/bundle ~/.vim/bundle)
+(mkdir -p ~/.vim/bundle && ln -s ~/dotfiles/vim/bundle ~/.vim/bundle)
 # update repo and submodules
 (git pull && git submodule update --init --recursive)
 
