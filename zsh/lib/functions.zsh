@@ -62,3 +62,20 @@ function git_stage() {
 }
 zle -N git_stage
 bindkey "^g" git_stage
+
+# new accept line
+# if the buffer is empty, then ls current directory with enter
+# if the buffer is empty && directory is git repository, then git status current git repo
+function new_accept_line() {
+	if [ ${#${(z)BUFFER}} -eq 0 ]; then
+		echo
+		if git rev-parse --git-dir > /dev/null 2>&1 ; then
+			git status
+		else
+			ls
+		fi
+	fi
+	zle accept-line
+}
+zle -N new_accept_line
+bindkey '^M' new_accept_line

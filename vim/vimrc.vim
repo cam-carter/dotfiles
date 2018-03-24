@@ -15,6 +15,9 @@ nnoremap <leader>c set cursorline! cursorcolumn!<CR>
 " Set airline theme
 let g:airline_theme='luna'
 
+" Open NERDTree when vim starts up
+autocmd vimenter * NERDTree
+
 " General Vim settings
 set number relativenumber
 let mapleader=","

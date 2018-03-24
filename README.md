@@ -18,8 +18,6 @@ The associated configuration files provide some improved key-bindings for my own
 #### Plugins
 All Vim plugins in this package are managed by [pathogen.vim](https://github.com/tpope/vim-pathogen), a runtimepath manager for Vim.
 
-
-
 ### Zsh
 Zsh (Z shell) is a Unix shell that can be used as a powerful command interpreter for shell scripting. The first version of Zsh was written by Paul Falstad in 1990. It makes a valueable resource when you're trapped inside of the a CLI all day.
 
