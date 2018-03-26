@@ -1,4 +1,5 @@
 set nocompatible		" be iMproved, required
+set termencoding=utf-8
 set encoding=utf-8
 
 execute pathogen#infect()
@@ -6,8 +7,11 @@ filetype plugin indent on	" required
 
 set spell spelllang=en_us
 
+" Solarized settings
 syntax enable
 set background=dark
+colorscheme solarized
+
 hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
 nnoremap <leader>c set cursorline! cursorcolumn!<CR>
@@ -22,6 +26,16 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 map <C-n> :NERDTreeToggle<CR>
+
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%#{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " General Vim settings
 set number relativenumber
