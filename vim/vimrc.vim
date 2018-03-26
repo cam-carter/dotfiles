@@ -1,6 +1,7 @@
 set nocompatible		" be iMproved, required
 set termencoding=utf-8
 set encoding=utf-8
+set updatetime=100
 
 execute pathogen#infect()
 filetype plugin indent on	" required
@@ -25,7 +26,11 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " Close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-map <C-n> :NERDTreeToggle<CR>
+" Plugin keybindings
+nmap <C-n> :NERDTreeToggle<CR>
+nmap <F10> :Goyo<CR>
+nmap <leader>l :Limelight!!<CR>
+xmap <leader>l <plug>(Limelight)
 
 " Syntastic settings
 set statusline+=%#warningmsg#
@@ -36,6 +41,16 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" Goyo settings
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+" Limelight settings
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
 
 " General Vim settings
 set number relativenumber
@@ -65,4 +80,5 @@ nnoremap vv 0v$
 set timeoutlen=300 
 inoremap fj <Esc>l
 inoremap jf <Esc>l
+
 
