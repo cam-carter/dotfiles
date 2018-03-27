@@ -8,10 +8,14 @@ filetype plugin indent on	" required
 
 set spell spelllang=en_us
 
-" Solarized settings
+" Colorscheme settings
+if has('gui_running')
+	set background=dark
+	colorscheme solarized
+else
+	colorscheme zenburn
+endif
 syntax enable
-set background=dark
-colorscheme solarized
 
 hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
@@ -52,14 +56,61 @@ let g:limelight_conceal_ctermfg = 240
 let g:limelight_conceal_guifg = 'DarkGray'
 let g:limelight_conceal_guifg = '#777777'
 
+" SimpylFold settings
+let g:SimpylFold_docstring_preview=1
+
+" YouCompleteMe settings
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 " General Vim settings
 set number relativenumber
 let mapleader=","
 let maplocalleader="\\"
 set autoindent
-set tabstop=2
-set shiftwidth=2
 set cursorline
+" enable code folding
+set foldmethod=indent
+set foldlevel=99
+
+" PEP8 standards config
+au BufNewFile,BufRead *.py 
+	\ set tabstop=4
+	\ set softtabstop=4
+	\ set shiftwidth=4
+	\ set textwidth=79
+	\ set expandtab
+	\ set autoindent
+	\ set fileformat=unix
+au BufNewFile,BufRead *.js, *.html, *.css, *.scss, *.sass 
+	\ set tabstop=2
+	\ set softtabstop=2
+	\ set shiftwidth=2
+au BufNewFile,BufRead *.py, *.pyc, *.c, *.h, *.rb match BadWhiteSpace /\s\+$/ 
+
+" Python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+	project_base_dir = os.environ['VIRTUAL_ENV']
+	activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+	execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+let python_highlight_all=1
+syntax on 
+
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2 
+" Key bindings
+
+" Split navigations
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
 
 nnoremap n nzzzv
 nnoremap N Nzzzv

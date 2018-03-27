@@ -58,3 +58,21 @@
 [submodule "vim/bundle/limelight.vim"]
 	path = vim/bundle/limelight.vim
 	url = https://github.com/junegunn/limelight.vim
+[submodule "vim/bundle/tabular"]
+	path = vim/bundle/tabular
+	url = https://github.com/godlygeek/tabular
+[submodule "vim/bundle/youcompleteme"]
+	path = vim/bundle/youcompleteme
+	url = https://github.com/valloric/youcompleteme
+[submodule "vim/bundle/SimpylFold"]
+	path = vim/bundle/SimpylFold
+	url = https://github.com/tmhedberg/SimpylFold
+[submodule "vim/bundle/indentpython.vim"]
+	path = vim/bundle/indentpython.vim
+	url = https://github.com/vim-scripts/indentpython.vim
+[submodule "vim/bundle/vim-flake8"]
+	path = vim/bundle/vim-flake8
+	url = https://github.com/nvie/vim-flake8
+[submodule "vim/bundle/Zenburn"]
+	path = vim/bundle/Zenburn
+	url = https://github.com/jnurmine/Zenburn
