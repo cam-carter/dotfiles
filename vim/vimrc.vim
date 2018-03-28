@@ -2,28 +2,31 @@ set nocompatible		" be iMproved, required
 set termencoding=utf-8
 set encoding=utf-8
 set updatetime=100
+set spell spelllang=en_us
 
 execute pathogen#infect()
 filetype plugin indent on	" required
-
-set spell spelllang=en_us
 
 " Colorscheme settings
 if has('gui_running')
 	set background=dark
 	colorscheme solarized
 else
-	colorscheme zenburn
+	set background=dark 
+	colorscheme one
 endif
 syntax enable
 
-hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
-hi CursorColumn cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
-nnoremap <leader>c set cursorline! cursorcolumn!<CR>
+set t_8b=[48;2;%lu;%lu;%lum
+set t_8f=[38;2;%lu;%lu;%lum
 
 " Set airline theme
-let g:airline_theme='luna'
+let g:airline_theme='one'
+let g:airline#extensions#tabline#enabled=1
 
+" NERDTree settings
+" ignore .pyc files in NERDTree
+let NERDTreeIgnore=['\.pyc$', '\~$']
 autocmd StdinReadPre * let s:std_in=1
 " Open NERDTree when vim starts up on opening a directory
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -31,30 +34,30 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Plugin keybindings
-nmap <C-n> :NERDTreeToggle<CR>
-nmap <F10> :Goyo<CR>
-nmap <leader>l :Limelight!!<CR>
-xmap <leader>l <plug>(Limelight)
+nnoremap <C-n> : NERDTreeToggle<CR>
+nnoremap <F10> : Goyo<CR>
+nnoremap <F5>  : UndotreeToggle<CR>
+call togglebg#map('<F4>')
 
 " Syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%#{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
 
 " Goyo settings
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 " Limelight settings
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-let g:limelight_conceal_guifg = 'DarkGray'
-let g:limelight_conceal_guifg = '#777777'
+let g:limelight_conceal_ctermfg='gray'
+let g:limelight_conceal_ctermfg=240
+let g:limelight_conceal_guifg='DarkGray'
+let g:limelight_conceal_guifg='#777777'
 
 " SimpylFold settings
 let g:SimpylFold_docstring_preview=1

@@ -37,6 +37,8 @@ git submodule add https://github.com/tpope/vim-fugitive
 
 The plugins are currently sourced using a symbolic link between `~/.vim/bundle` and `~/dotfiles/vim/.vim/bundle`.
 
+
+
 ### Zsh
 Zsh (Z shell) is a Unix shell that can be used as a powerful command interpreter for shell scripting. The first version of Zsh was written by Paul Falstad in 1990. It makes a valueable resource when you're trapped inside of the a CLI all day.
 

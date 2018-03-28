@@ -61,9 +61,6 @@
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular
-[submodule "vim/bundle/youcompleteme"]
-	path = vim/bundle/youcompleteme
-	url = https://github.com/valloric/youcompleteme
 [submodule "vim/bundle/SimpylFold"]
 	path = vim/bundle/SimpylFold
 	url = https://github.com/tmhedberg/SimpylFold
@@ -73,6 +70,27 @@
 [submodule "vim/bundle/vim-flake8"]
 	path = vim/bundle/vim-flake8
 	url = https://github.com/nvie/vim-flake8
-[submodule "vim/bundle/Zenburn"]
-	path = vim/bundle/Zenburn
-	url = https://github.com/jnurmine/Zenburn
+[submodule "vim/bundle/utlisnips"]
+	path = vim/bundle/utlisnips
+	url = https://github.com/SirVer/utlisnips
+[submodule "vim/bundle/ultisnips"]
+	path = vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips
+[submodule "vim/bundle/vim-snippets"]
+	path = vim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets
+[submodule "vim/bundle/nerdcommenter"]
+	path = vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/bundle/vim-multiple-cursors"]
+	path = vim/bundle/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors
+[submodule "vim/bundle/undotree"]
+	path = vim/bundle/undotree
+	url = https://github.com/mbbill/undotree
+[submodule "vim/bundle/codi.vim"]
+	path = vim/bundle/codi.vim
+	url = https://github.com/metakirby5/codi.vim
+[submodule "vim/bundle/vim-one"]
+	path = vim/bundle/vim-one
+	url = https://github.com/ashfinal/vim-one
