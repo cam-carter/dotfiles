@@ -92,7 +92,7 @@ au BufNewFile,BufRead *.js, *.html, *.css, *.scss, *.sass
 au BufNewFile,BufRead *.py, *.pyc, *.c, *.h, *.rb match BadWhiteSpace /\s\+$/ 
 
 " Python with virtualenv support
-py << EOF
+py3 << EOF
 import os
 import sys
 if 'VIRTUAL_ENV' in os.environ:
