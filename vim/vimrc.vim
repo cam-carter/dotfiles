@@ -9,11 +9,11 @@ filetype plugin indent on	" required
 
 " Colorscheme settings
 if has('gui_running')
-	set background=dark
+	set background=light
 	colorscheme solarized
 else
 	set background=dark 
-	colorscheme one
+	colorscheme solarized
 endif
 syntax enable
 
@@ -35,7 +35,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " Plugin keybindings
 nnoremap <C-n> : NERDTreeToggle<CR>
-nnoremap <F10> : Goyo<CR>
+nnoremap <F9> : Goyo<CR>
 nnoremap <F5>  : UndotreeToggle<CR>
 call togglebg#map('<F4>')
 
