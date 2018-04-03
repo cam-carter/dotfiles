@@ -73,13 +73,13 @@ Attached with these dotfiles include an assortment of Zsh plugins, managed with 
 
 | Function | Description |
 |----------|-------------|
-| `cd`         | changes to specified directory and lists its contents                                                                                                                  |
-| `ctrl+k`     | changes to parent directory                                                                                                                                            |
-| `ctrl+h`     | changes to home directory                                                                                                                                              |
-| `ctrl+l`     | lists contents of current directory                                                                                                                                    |
-| `ctrl+space` | clears the terminal                                                                                                                                                    |
-| `ctrl+g`     | Inside of a git repo this function will add all changes, commit them, and push the repo upstream                                                                       |
-| `enter`      | If the buffer is empty, the enter key lists the contents of the current directory. If it is empty and a git repo, then it will show the git status of the current repo |
+| `cd` | Works like the default `cd` function, but it also lists the contents of the directory that you change into. |
+| `ctrl+k` | This function changes to the parent directory (`cd ..`). |
+| `ctrl+h` | This function changes to the user's home directory (`cd ~`). |
+| `ctrl+l` | This function lists the contents of the working directory (`ls`). |
+| `ctrl+space` | This function clears the current terminal window (`clear`). |
+| `ctrl+g` | While inside a git repository, this function will add all changes to be committed, commit the changes, using the buffer as the commit message, and then push the changes upstream.
+| `enter` | If the buffer is empty, the enter key lists the contents of the current directory (`ls`). If it buffer is empty and the working direcotry is a git repository, then it will show the git status of the current repository (`git status`). |
 
 
 ### tmux
