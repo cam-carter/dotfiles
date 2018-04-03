@@ -69,6 +69,23 @@ Zsh (Z shell) is a Unix shell that can be used as a powerful command interpreter
 
 Attached with these dotfiles include an assortment of Zsh plugins, managed with Oh My Zsh, and custom aliases and functions.
 
+#### Aliases & Functions
+
+| `cd`     | changes to specified directory and lists its contents   |
+|----------| ------------------------------------------------------- |
+| `ctrl+k` | changes to parent directory |
+|----------|-----------------------------|
+| `ctrl+h` | changes to home directory |
+|----------|---------------------------|
+| `ctrl+l` | lists contents of current directory |
+|----------|-------------------------------------|
+| `ctrl+space` | clears the terminal |
+|--------------|---------------------|
+| `ctrl+g` | Inside of a git repo this function will add all changes, commit them, and push the repo upstream |
+|----------|---------------------|
+| `enter` | If the buffer is empty, the enter key lists the contents of the current directory. If it is empty and a git repo, then it will show the git status of the current repo |
+
+
 ### tmux
 
 tmux is a terminal multiplexer, allowing a user to access multiple terminal sessions inside a single terminal window or a remote terminal session. It is extremely useful for handling multiple running terminal sessions.
