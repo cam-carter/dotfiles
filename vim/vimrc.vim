@@ -77,7 +77,7 @@ set foldmethod=indent
 set foldlevel=99
 
 " PEP8 standards config
-au BufNewFile,BufRead *.py 
+au BufNewFile,BufRead *.py, *.md, *.markdown
 	\ set tabstop=4
 	\ set softtabstop=4
 	\ set shiftwidth=4

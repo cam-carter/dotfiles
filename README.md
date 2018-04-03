@@ -41,28 +41,28 @@ The plugins are currently sourced using a symbolic link between `~/.vim/bundle` 
 
 - [fugitive.vim](https://github.com/vim-fugitive)
 - [vim-gitgutter](https://github.com/vim-gitgutter)
-- [vim-indent-guides]
-- [vim-multiple-cursors]
-- [vim-rails]
-- [utlisnips]
-- [vim-snippets]
-- [vim-surround]
-- [vim-flake8]
-- [vim-colors-solarized]
-- [vim-autoclose]
-- [vim-airline]
-- [vim-airline-themes]
-- [undotree]
-- [tabular]
-- [syntastic]
-- [SimpylFold]
-- [nerdtree]
-- [nerdtree-git-plugin]
-- [nercommenter]
-- [goyo.vim]
-	- [limelight.vim]
-- [indentpython.vim]
-- [ctrlp.vim]
+- [vim-indent-guides](https://github.com/nathanaelkane/vim-indent-guides)
+- [vim-multiple-cursors](https"//github.com/terryma/vim-multiple-cursors")
+- [rails.vim](https://github.com/tpope/vim-rails)
+- [UtliSnips](https://github.com/SirVer/ultisnips)
+- [vim-snippets](https://github.com/honza/vim-snippets)
+- [surround.vim](https://github.com/tpope/vim-surround)
+- [vim-flake8](https://github.com/nvie/vim-flake8)
+- [vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)
+- [vim-autoclose](https://github.com/vim-scripts/AutoClose)
+- [vim-airline](https://github.com/vim-airline/vim-airline)
+	- [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
+- [undotree](https://github.com/mbbill/undotree)
+- [tabular](https://github.com/godlygeek/tabular)
+- [syntastic](https://github.com/vim-syntastic/syntastic)
+- [SimpylFold](https://github.com/tmhedberg/SimpylFold)
+- [NERDTree](https://github/scrooloose/nerdtree) - a tree explorer plugin for vim
+	- [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-status) - a plugin for NERDTree showing git status
+- [NERDCommenter](https://github.com/scrooloose/nerdcommenter) - vim plugin for improved commenting functionality
+- [goyo.vim](https://github.com/junegunn/goyo.vim) - distraction-free writing in vim
+	- [limelight.vim](https://github.com/junegunn/limelight.vim) - hyperfocus-writing in vim
+- [indentpython.vim](https://github.com/vim-scripts/indentpython.vim) - an alternative indentation script for python
+- [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim) Fuzzy file, buffer, mru, tag, etc finder
 
 ### Zsh
 Zsh (Z shell) is a Unix shell that can be used as a powerful command interpreter for shell scripting. The first version of Zsh was written by Paul Falstad in 1990.
