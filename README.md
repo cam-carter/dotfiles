@@ -38,8 +38,8 @@ git submodule add https://github.com/tpope/vim-fugitive
 ```
 
 The plugins are currently sourced using a symbolic link between `~/.vim/bundle` and `~/dotfiles/vim/.vim/bundle`.
-		- [vim-fugitive]
-		- [vim-gitgutter]
+		- [fugitive.vim](https://github.com/vim-fugitive)
+		- [vim-gitgutter](https://github.com/vim-gitgutter)
 		- [vim-indent-guides]
 		- [vim-multiple-cursors]
 		- [vim-rails]
