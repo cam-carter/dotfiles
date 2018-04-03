@@ -38,6 +38,30 @@ git submodule add https://github.com/tpope/vim-fugitive
 ```
 
 The plugins are currently sourced using a symbolic link between `~/.vim/bundle` and `~/dotfiles/vim/.vim/bundle`.
+		- [vim-fugitive]
+		- [vim-gitgutter]
+		- [vim-indent-guides]
+		- [vim-multiple-cursors]
+		- [vim-rails]
+		- [utlisnips]
+		- [vim-snippets]
+		- [vim-surround]
+		- [vim-flake8]
+		- [vim-colors-solarized]
+		- [vim-autoclose]
+		- [vim-airline]
+		- [vim-airline-themes]
+		- [undotree]
+		- [tabular]
+		- [syntastic]
+		- [SimpylFold]
+		- [nerdtree]
+		- [nerdtree-git-plugin]
+		- [nercommenter]
+		- [goyo.vim]
+				- [limelight.vim]
+		- [indentpython.vim]
+		- [ctrlp.vim]
 
 ### Zsh
 Zsh (Z shell) is a Unix shell that can be used as a powerful command interpreter for shell scripting. The first version of Zsh was written by Paul Falstad in 1990.
