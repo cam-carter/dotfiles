@@ -71,7 +71,8 @@ Attached with these dotfiles include an assortment of Zsh plugins, managed with 
 
 #### Aliases & Functions
 
-| Function     | Description                                                                                                                                                            |
+| Function | Description |
+|----------|-------------|
 | `cd`         | changes to specified directory and lists its contents                                                                                                                  |
 | `ctrl+k`     | changes to parent directory                                                                                                                                            |
 | `ctrl+h`     | changes to home directory                                                                                                                                              |
