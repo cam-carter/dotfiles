@@ -39,28 +39,28 @@ git submodule add https://github.com/tpope/vim-fugitive
 
 The plugins are currently sourced using a symbolic link between `~/.vim/bundle` and `~/dotfiles/vim/.vim/bundle`.
 
-- [fugitive.vim](https://github.com/vim-fugitive)
-- [vim-gitgutter](https://github.com/vim-gitgutter)
-- [vim-indent-guides](https://github.com/nathanaelkane/vim-indent-guides)
+- [fugitive.vim](https://github.com/vim-fugitive) - a Git wrapper so awesome, it should be illegal
+- [vim-gitgutter](https://github.com/vim-gitgutter) - a vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks
+- [vim-indent-guides](https://github.com/nathanaelkane/vim-indent-guides) - true Sublime Text style multiple selections for vim
 - [vim-multiple-cursors](https"//github.com/terryma/vim-multiple-cursors")
-- [rails.vim](https://github.com/tpope/vim-rails)
-- [UtliSnips](https://github.com/SirVer/ultisnips)
-- [vim-snippets](https://github.com/honza/vim-snippets)
-- [surround.vim](https://github.com/tpope/vim-surround)
-- [vim-flake8](https://github.com/nvie/vim-flake8)
-- [vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)
-- [vim-autoclose](https://github.com/vim-scripts/AutoClose)
-- [vim-airline](https://github.com/vim-airline/vim-airline)
-	- [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
-- [undotree](https://github.com/mbbill/undotree)
-- [tabular](https://github.com/godlygeek/tabular)
-- [syntastic](https://github.com/vim-syntastic/syntastic)
-- [SimpylFold](https://github.com/tmhedberg/SimpylFold)
+- [rails.vim](https://github.com/tpope/vim-rails) - Ruby on Rails power tools
+- [UtliSnips](https://github.com/SirVer/ultisnips) - the ultimate snippet solution for vim
+- [vim-snippets](https://github.com/honza/vim-snippets) - snippets files for various programming languages
+- [surround.vim](https://github.com/tpope/vim-surround) - quoting/parenthesizing made simple
+- [vim-flake8](https://github.com/nvie/vim-flake8) - Flake8 plugin for vim
+- [vim-colors-solarized](https://github.com/altercation/vim-colors-solarized) - precision colorscheme for vim text editor
+- [vim-autoclose](https://github.com/vim-scripts/AutoClose) - inserts matching delimeters
+- [vim-airline](https://github.com/vim-airline/vim-airline) - lean & mean status/tabline for vim that's light as air
+	- [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes) - a collection of themes for vim-airline
+- [undotree](https://github.com/mbbill/undotree) - the ultimate undo history visualizer for vim
+- [tabular](https://github.com/godlygeek/tabular) - vim script for text filtering and alignment
+- [syntastic](https://github.com/vim-syntastic/syntastic) - syntax checking hacks for vim
+- [SimpylFold](https://github.com/tmhedberg/SimpylFold) - no-bs python code folding for vim
 - [NERDTree](https://github/scrooloose/nerdtree) - a tree explorer plugin for vim
-- [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-status) - a plugin for NERDTree showing git status
+	- [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-status) - a plugin for NERDTree showing git status
 - [NERDCommenter](https://github.com/scrooloose/nerdcommenter)- vim plugin for improved commenting functionality
 - [goyo.vim](https://github.com/junegunn/goyo.vim) - distraction-free writing in vim
-- [limelight.vim](https://github.com/junegunn/limelight.vim) - hyperfocus-writing in vim
+	- [limelight.vim](https://github.com/junegunn/limelight.vim) - hyperfocus-writing in vim
 - [indentpython.vim](https://github.com/vim-scripts/indentpython.vim) - an alternative indentation script for python
 - [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim) - Fuzzy file, buffer, mru, tag, etc finder
 
