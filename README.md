@@ -71,21 +71,14 @@ Attached with these dotfiles include an assortment of Zsh plugins, managed with 
 
 #### Aliases & Functions
 
-| Function | Description |
-|----------|-------------|
-| `cd`     | changes to specified directory and lists its contents   |
-|----------| ------------------------------------------------------- |
-| `ctrl+k` | changes to parent directory |
-|----------|-----------------------------|
-| `ctrl+h` | changes to home directory |
-|----------|---------------------------|
-| `ctrl+l` | lists contents of current directory |
-|----------|-------------------------------------|
-| `ctrl+space` | clears the terminal |
-|--------------|---------------------|
-| `ctrl+g` | Inside of a git repo this function will add all changes, commit them, and push the repo upstream |
-|----------|---------------------|
-| `enter` | If the buffer is empty, the enter key lists the contents of the current directory. If it is empty and a git repo, then it will show the git status of the current repo |
+| Function     | Description                                                                                                                                                            |
+| `cd`         | changes to specified directory and lists its contents                                                                                                                  |
+| `ctrl+k`     | changes to parent directory                                                                                                                                            |
+| `ctrl+h`     | changes to home directory                                                                                                                                              |
+| `ctrl+l`     | lists contents of current directory                                                                                                                                    |
+| `ctrl+space` | clears the terminal                                                                                                                                                    |
+| `ctrl+g`     | Inside of a git repo this function will add all changes, commit them, and push the repo upstream                                                                       |
+| `enter`      | If the buffer is empty, the enter key lists the contents of the current directory. If it is empty and a git repo, then it will show the git status of the current repo |
 
 
 ### tmux
