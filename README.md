@@ -30,7 +30,7 @@ cd ~ && git clone https://github.com/cam-carter/dotfiles
 cd dotfiles && ./deploy
 ```
 
-Requires Vim version 8 and `curl`
+Requires Vim version 8 and `curl`, and for macOS users, [Homebrew](https://brew.sh)
 
 *Everything should work with Neovim (which I will be transitioning to in the coming months), if you switch over all the config files*
 
@@ -42,10 +42,12 @@ echo "Updating configuration..."
 source $HOME/dotfiles/zsh/zshrc.sh
 ```
 
-## Included Software
+## What's included?
 
 ### Vim
-Vim is an open-source and highly configurable text-editor.  Before Vim there was "vi", originally released as part of 2BSD in May 1979. Vim stands for "Vi IMproved", and it is just that.
+Your grandpa's text editor! Vim has been in active development since 1979 with the release of vi in 2BSD. It is open-source and highly configurable... what's not to love?
+
+
 
 The configuration files included in this repo provide some improved key-bindings for my own day-to-day use and also a bundle of plugins I find most useful for editing with Vim. Vim is a very difficult program to learn and get used to, but once you are able to conquer the steep learning curve, the power you command is incomparable (except for maybe Emacs).
 
