@@ -1,4 +1,16 @@
-# dotfiles
+```
+ ______________
+< cam carter's >
+<   dotfiles   >
+ --------------
+           \   ^__^
+					  \  (oo)\_______
+						   (__)\       )\/\
+							     ||----w |
+									 ||     ||
+```
+
+# What the heck is this?
 
 This repo contains my dotfile configurations. It also contains a deployment script to install Vim, zsh, and tmux, if you do not have them already. The included software and there configuration files are meant to be a lightweight toolkit usable on any UNIX-based machine.
 
@@ -11,7 +23,7 @@ cd ~ && git clone https://github.com/cam-carter/dotfiles
 cd dotfiles && ./deploy
 ```
 
-Requires Vim version 8 and curl.
+Requires Vim version 8 and `curl`
 
 ### Keeping things up to date.
 You don't have to worry about updating these configuration files every time the master branch is changed. The following few lines of code, found in `~/dotfiles/zsh/lib/zshrc-manager.sh`, updates the main git repository and the included submodules whenever a new terminal is launched:
