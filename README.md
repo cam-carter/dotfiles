@@ -11,11 +11,17 @@
 				# another dotfile repo? yes
 ```
 
-# What the heck is this?
+## What the heck is this?
 
-This repo contains my dotfile configurations. It also contains a deployment script to install Vim, zsh, and tmux, if you do not have them already. The included software and there configuration files are meant to be a lightweight toolkit usable on any UNIX-based machine.
+**Disclaimer: these dotfiles are constantly changing, becuase I can never make up my mind on how things should work**
 
-If you like these dotfiles so much so that you fork the repo for yourself, go right ahead! Feel free to let me know of any fun and interesting functions you come up with.
+This repo contains opionated dotfile configurations. It also contains a deployment script to install Vim, zsh, and tmux, if you do not have them already. The included software and there configuration files are meant to be a lightweight toolkit usable on any UNIX-based machine, *hopefully*.
+
+  - A ton of vim plugins (and some zsh) all in one place, curated and customized for (my) your enjoyment!
+  - A simple deployment scipt that (should work) work on every system!
+  - Custom functions and aliases that will make (my) your life easier!
+
+**Don't be afraid! Fork this repository!**
 
 ## Installation
 To install and deploy, copy and paste the following commands into your terminal:
@@ -25,6 +31,8 @@ cd dotfiles && ./deploy
 ```
 
 Requires Vim version 8 and `curl`
+
+*Everything should work with Neovim (which I will be transitioning to in the coming months), if you switch over all the config files*
 
 ### Keeping things up to date.
 You don't have to worry about updating these configuration files every time the master branch is changed. The following few lines of code, found in `~/dotfiles/zsh/lib/zshrc-manager.sh`, updates the main git repository and the included submodules whenever a new terminal is launched:
