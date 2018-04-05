@@ -45,7 +45,7 @@ source $HOME/dotfiles/zsh/zshrc.sh
 ## What's included?
 
 ### Vim
-Your grandpa's text editor! Vim has been in active development since 1979 with the release of vi in 2BSD. It is open-source and highly configurable... what's not to love?
+Your grandpa's text editor! [Vim](https://www.vim.org) has been in active development since 1979 with the release of vi in 2BSD. It is open-source and highly configurable... what's not to love?
 
 
 
@@ -88,9 +88,9 @@ The plugins are currently sourced using a symbolic link between `~/.vim/bundle` 
 - [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim) - Fuzzy file, buffer, mru, tag, etc finder
 
 ### Zsh
-Zsh (Z shell) is a Unix shell that can be used as a powerful command interpreter for shell scripting. The first version of Zsh was written by Paul Falstad in 1990.
+[Zsh](https://www.zsh.org) (Z shell) is a Unix shell that can be used as a powerful command interpreter for shell scripting. The first version of Zsh was written by Paul Falstad in 1990.
 
-Attached with these dotfiles include an assortment of Zsh plugins, managed with Oh My Zsh, and custom aliases and functions.
+Attached with these dotfiles include an assortment of Zsh plugins, managed with [Oh My Zsh!](https://ohmyz.sh), and custom aliases and functions.
 
 #### Aliases & Functions
 
