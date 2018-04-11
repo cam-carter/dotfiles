@@ -9,4 +9,4 @@ fi
 
 echo "Updating configuration..."
 (cd $HOME/dotfiles && git pull && git submodule update --init --recursive)
-source $HOME/dotfiles/zsh/zshrc.sh
+source $HOME/dotfiles/zsh/zshrc.sh > /dev/null

@@ -79,3 +79,8 @@ function new_accept_line() {
 }
 zle -N new_accept_line
 bindkey '^M' new_accept_line
+
+# add vim plugin
+function vim_add_plugin() {
+	cd $HOME/dotfiles/vim/bundle && git submodule add https://github.com/$@; cd -
+}

@@ -94,3 +94,6 @@
 [submodule "vim/bundle/vim-one"]
 	path = vim/bundle/vim-one
 	url = https://github.com/ashfinal/vim-one
+[submodule "vim/bundle/vim-sensible"]
+	path = vim/bundle/vim-sensible
+	url = https://github.com/tpope/vim-sensible

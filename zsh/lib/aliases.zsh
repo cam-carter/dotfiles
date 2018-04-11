@@ -11,13 +11,8 @@ source ~/dotfiles/zsh/lib/functions.zsh
 alias mkdir="mkd"
 # changes directory and lists contents
 alias cd="c"
+# adds vim plugin to runtimepath
+alias pplug="vim_add_plugin" # argument is gitusername/gitrepo
 
-alias djangodev='source ~/.virtualenvs/djangodev/bin/activate'
-alias macspoof='bash ~/.bin/macspoof'
-alias pc='proxychains'
-alias spotify='/usr/bin/spotify --force-device-scale-factor=1.5'
-alias loadrvm='source /usr/local/rvm/bin/rvm'
-alias startapache='/etc/init.d/apache2 start'
-alias stopapache='/etc/init.d/apache2 stop'
-alias startmysql='/etc/init.d/mysql start'
-alias stopmysql='/etc/init.d/mysql stop'
+alias v="vim"
+alias vconf="vim $HOME/dotfiles/vim/vimrc.vim"
