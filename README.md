@@ -30,7 +30,7 @@ cd ~ && git clone https://github.com/cam-carter/dotfiles
 cd dotfiles && ./deploy
 ```
 
-Requires Vim version 8 and `curl`, and for macOS users, [Homebrew](https://brew.sh)
+Requires Vim version 8 and for macOS users, [Homebrew](https://brew.sh)
 
 *Everything should work with Neovim (which I will be transitioning to in the coming months), if you switch over all the config files*
 

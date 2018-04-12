@@ -95,6 +95,7 @@ check_default_shell() {
 		stty $OLD_STTY && echo
 		if echo "$answer" | grep -iq "^y" ; then
 			chsh -s $(which zsh)
+			printf "exec zsh" >> $HOME/.bashrc
 		else
 			echo -n "Are you absolutely sure about this?"
 			stty raw -echo
@@ -102,6 +103,7 @@ check_default_shell() {
 			stty $OLD_STTY $$ echo
 			if echo "$answer" | grep -iq "^y" ; then
 				chsh -s $(which zsh)
+				printf "exec zsh" >> $HOME/.bashrc
 			else
 				echo "None of this stuff's gonna work the way it's supposed to... I suggest you reconsider your decision."
 			fi
@@ -165,8 +167,8 @@ echo
 ##  Download pathogen & link bundled plugins  ##
 #################################################
 
-(mkdir -p ~/.vim/autoload && curl -LSso ~/.vim/autload/pathogen.vim https://tpo.pe/pathogen.vim)
-(ln -s ~/dotfiles/vim/bundle ~/.vim/bundle)
+(ln -s $HOME/dotfiles/vim/autoload $HOME/.vim/autoload)
+(ln -s $HOME/dotfiles/vim/bundle $HOME/.vim/bundle)
 # update repo and submodules
 (git pull && git submodule update --init --recursive)
 
