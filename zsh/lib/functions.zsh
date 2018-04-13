@@ -21,6 +21,15 @@ function parent_up() {
 zle -N parent_up
 bindkey "^k" parent_up
 
+# go back
+# this function jumps to the previous working directory and binds it to "^b"
+function go_back() {
+	BUFFER="cd -"
+	zle accept-line
+}
+zle -N go_back
+bindkey "^b"
+
 # goto home
 # this function jumps to home directory and binds it to "^h"
 function goto_home() {
