@@ -1,0 +1,131 @@
+#!/bin/bash
+
+echo " ______________                 "             
+echo "< cam carter's >                "
+echo "<   dotfiles   >                "
+echo " --------------                 "
+echo "           \   ^__^             "
+echo "            \  (oo)\_______     "
+echo "               (__)\       )\/\ "
+echo "                   ||----w |    "
+echo "                   ||     ||    "
+
+
+printf "\n"
+printf "\n"
+printf "\n"
+
+###############################################################
+##  Prompts the user to install a missing package            ##
+##  Globals:                                                 ##
+    	OLD_STTY=$(stty -g)                                    ##
+##  Arguments:                                               ##
+##  	$1 = returned from check_for_package() = package name  ##
+##  Returns:                                                 ##
+##  	installs package using default package manager         ##
+###############################################################
+
+install_missing_package() {
+	if [ -x "$(command -v apt)" ]; then
+		sudo apt install $1 -y
+	elif [ -x "$(command -v brew)" ]; then
+		brew install $1 -y
+	elif [ -x "$(command -v pkg)" ]; then
+		sudo pkg install $1
+	elif [ -x "$(command -v pacman)" ]; then
+		sudo pacman -S $1
+	else
+		echo "Couldn't find your default package manager. Install $1 using your default package manager, and then run ./deploy again."
+	fi
+}
+
+###########################################################
+##  Checks to see if necessary package is installed      ##
+##  Globals:                                             ##
+##  	None                                               ##
+##  Arguments:                                           ##
+##  	$1 = package name                                  ##
+##  Returns:                                             ##
+##  	passes $1 to install_missing_package() if missing  ##
+###########################################################
+
+check_for_package() {
+	echo "Checking to see if $1 is installed..."
+	if ! [ -x "$(command -v $1)" ]; then
+		install_missing_package $1
+	else
+		echo "$1 is already installed."
+	fi
+	echo
+}
+
+###############################################################
+##  Checks if zsh is default shell and sets as default if !  ##
+##  Globals:                                                 ##       
+##  	None                                                   ##
+##  Arugments:                                               ##
+##  	None                                                   ##
+##  Returns:                                                 ##
+##  	sets zsh to default shell                              ##
+###############################################################
+
+check_default_shell() {
+	if [ -z "${SHELL##*zsh*}" ]; then
+		echo "Default shell already set to zsh."
+	else
+		chsh -s $(which zsh)
+		printf "exec zsh" >> $HOME/.bashrc
+}
+
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+
+#############################
+##  Checking for packages  ##
+#############################
+
+check_for_package zsh
+check_for_package vim
+check_for_package tmux
+check_default_shell
+
+#############################################
+##  Prompt user to backup system dotfiles  ##
+#############################################
+
+echo -n "You wanna backup your current dotfiles? Is it worth it? [Y/n]"
+stty raw -echo
+answer=$(while ! head -c 1 | grep -i '[ny]' ; do true ; done )
+stty $OLD_STTY && echo   
+if echo $answer | grep -iq "^y" ; then
+	mv ~/.zshrc ~/.zshrc.old
+	mv ~/.tmux.conf ~/.tmux.conf.old
+	mv ~/.vimrc ~/.vimrc.old
+else
+	echo -e "Oh that's brave... I guess we won't back up those files."
+fi
+
+printf "source $HOME/dotfiles/zsh/lib/zshrc-manager.sh" > ~/.zshrc
+printf "source $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
+printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
+echo
+
+#################################################
+##  Download pathogen & link bundled plugins  ##
+#################################################
+
+(ln -s $HOME/dotfiles/vim/autoload $HOME/.vim/autoload)
+(ln -s $HOME/dotfiles/vim/bundle $HOME/.vim/bundle)
+# update repo and submodules
+(git pull && git submodule update --init --recursive)
+
+###########################
+##  Update new dotfiles  ##
+###########################
+
+{
+	source ~/.zshrc
+	source ~/.vimrc
+	tmux source-file ~/.tmux.conf
+} &> /dev/null
