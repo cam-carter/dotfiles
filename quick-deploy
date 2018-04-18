@@ -114,7 +114,7 @@ echo
 #################################################
 ##  Download pathogen & link bundled plugins  ##
 #################################################
-
+(sudo chown $USER $HOME/dotfiles)
 (ln -s $HOME/dotfiles/vim/autoload $HOME/.vim/autoload)
 (ln -s $HOME/dotfiles/vim/bundle $HOME/.vim/bundle)
 # update repo and submodules
