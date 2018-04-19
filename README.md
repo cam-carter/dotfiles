@@ -18,7 +18,7 @@
 This repo contains opionated dotfile configurations. It also contains a deployment script to install Vim, zsh, and tmux, if you do not have them already. The included software and there configuration files are meant to be a lightweight toolkit usable on any UNIX-based machine, *hopefully*.
 
   - A ton of vim plugins (and some zsh) all in one place, curated and customized for (my) your enjoyment!
-  - A simple deployment scipt that (should work) work on every system!
+  - A simple deployment scipt that (should work) works on every system!
   - Custom functions and aliases that will make (my) your life easier!
 
 **Don't be afraid! Fork this repository!**
@@ -26,8 +26,10 @@ This repo contains opionated dotfile configurations. It also contains a deployme
 ## Installation
 To install and deploy, copy and paste the following commands into your terminal:
 ```
-cd ~ && git clone https://github.com/cam-carter/dotfiles
-cd dotfiles && ./deploy
+cd ~
+git clone https://github.com/cam-carter/dotfiles
+cd dotfiles
+./deploy
 ```
 
 Requires Vim version 8 and for macOS users, [Homebrew](https://brew.sh)
@@ -47,9 +49,7 @@ source $HOME/dotfiles/zsh/zshrc.sh
 ### Vim
 Your grandpa's text editor! [Vim](https://www.vim.org) has been in active development since 1979 with the release of vi in 2BSD. It is open-source and highly configurable... what's not to love?
 
-
-
-The configuration files included in this repo provide some improved key-bindings for my own day-to-day use and also a bundle of plugins I find most useful for editing with Vim. Vim is a very difficult program to learn and get used to, but once you are able to conquer the steep learning curve, the power you command is incomparable (except for maybe Emacs).
+The configuration files included in this repo provide some improved key-bindingsand also a bundle of plugins useful for editing with Vim. Vim is a very difficult program to learn and get used to, but once you are able to conquer the steep learning curve, the power you command is incomparable (except for maybe Emacs).
 
 #### Plugins
 All Vim plugins in this package are managed by [pathogen.vim](https://github.com/tpope/vim-pathogen).
@@ -108,4 +108,3 @@ Attached with these dotfiles include an assortment of Zsh plugins, managed with 
 ### tmux
 
 tmux is a terminal multiplexer, allowing a user to access multiple terminal sessions inside a single terminal window or a remote terminal session. It is extremely useful for handling multiple running terminal sessions.
-
