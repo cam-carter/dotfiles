@@ -13,9 +13,9 @@
 
 ## What the heck is this?
 
-**Disclaimer: these dotfiles are constantly changing, becuase I can never make up my mind on how things should work**
+**Disclaimer: these dotfiles are constantly changing, because I can never make up my mind on how things should work**
 
-This repo contains opionated dotfile configurations. It also contains a deployment script to install Vim, zsh, and tmux, if you do not have them already. The included software and there configuration files are meant to be a lightweight toolkit usable on any UNIX-based machine, *hopefully*.
+This repo contains dotfile configurations. It also contains a deployment script to install Vim, zsh, and tmux, if you do not have them already. The included software and there configuration files are meant to be a lightweight toolkit usable on any UNIX-based machine, *hopefully*.
 
   - A ton of vim plugins (and some zsh) all in one place, curated and customized for (my) your enjoyment!
   - A simple deployment scipt that (should work) works on every system!
