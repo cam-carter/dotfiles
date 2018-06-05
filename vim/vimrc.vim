@@ -77,7 +77,7 @@ set foldmethod=indent
 set foldlevel=99
 
 " PEP8 standards config
-au BufNewFile,BufRead *.py, *.md, *.markdown
+au BufNewFile,BufRead *.py, *.md, *.markdown, *.ex, *.exs
 	\ set tabstop=4
 	\ set softtabstop=4
 	\ set shiftwidth=4
@@ -89,7 +89,7 @@ au BufNewFile,BufRead *.js, *.html, *.css, *.scss, *.sass
 	\ set tabstop=2
 	\ set softtabstop=2
 	\ set shiftwidth=2
-au BufNewFile,BufRead *.py, *.pyc, *.c, *.h, *.rb match BadWhiteSpace /\s\+$/ 
+au BufNewFile,BufRead *.py, *.pyc, *.c, *.h, *.rb, *.ex, *.exs match BadWhiteSpace /\s\+$/ 
 
 " Python with virtualenv support
 py3 << EOF
