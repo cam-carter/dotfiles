@@ -20,6 +20,9 @@ syntax enable
 set t_8b=[48;2;%lu;%lu;%lum
 set t_8f=[38;2;%lu;%lu;%lum
 
+" Enable indent guides by default
+let g:indent_guides_enable_on_vim_startup = 1
+
 " Set airline theme
 let g:airline_theme='one'
 let g:airline#extensions#tabline#enabled=1
