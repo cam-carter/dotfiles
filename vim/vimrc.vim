@@ -22,6 +22,8 @@ set t_8f=[38;2;%lu;%lu;%lum
 
 " Enable indent guides by default
 let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:inden_guides_guide_size = 1
 
 " Set airline theme
 let g:airline_theme='one'
