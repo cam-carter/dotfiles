@@ -21,17 +21,15 @@ set t_8b=[48;2;%lu;%lu;%lum
 set t_8f=[38;2;%lu;%lu;%lum
 
 " Enable indent guides by default
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
-let g:inden_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:inden_guides_guide_size=1
 
 " Set airline theme
 let g:airline_theme='one'
-let g:airline#extensions#tabline#enabled=1
+let g:airline_extensions_tabline_enabled=1
 
 " NERDTree settings
-" ignore .pyc files in NERDTree
-let NERDTreeIgnore=['\.pyc$', '\~$']
 autocmd StdinReadPre * let s:std_in=1
 " Open NERDTree when vim starts up on opening a directory
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -140,4 +138,14 @@ set timeoutlen=300
 inoremap fj <Esc>l
 inoremap jf <Esc>l
 
-
+" go to tab number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 0gt
