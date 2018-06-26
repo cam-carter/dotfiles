@@ -20,10 +20,16 @@ syntax enable
 set t_8b=[48;2;%lu;%lu;%lum
 set t_8f=[38;2;%lu;%lu;%lum
 
+" Filenames where closetag plugin is enabled
+let g:closetag_filenames = '*.html, *.eex'
+
 " Enable indent guides by default
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
 let g:inden_guides_guide_size=1
+
+" Enable deoplete on startup
+let g:deoplete#enable_at_startup=1
 
 " Set airline theme
 let g:airline_theme='one'
