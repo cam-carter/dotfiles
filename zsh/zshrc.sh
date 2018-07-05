@@ -61,7 +61,6 @@ ENABLE_CORRECTION="true"
 plugins=(
   git
   zsh-autosuggestions
-  tmux
   vi-mode
   web-search
 )
