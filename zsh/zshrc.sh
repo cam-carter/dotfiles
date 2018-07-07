@@ -96,6 +96,7 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="vim $HOME/dotfiles/zsh/zshrc.sh"
 alias pg="sudo -u postgres -i"
 alias erep="iex -S mix"
+alias a="sudo apt"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 ######################

@@ -139,6 +139,7 @@ fi
 
 check_for_package zsh
 check_for_package vim
+check_for_package emacs
 check_for_package tmux
 check_default_shell
 
@@ -167,6 +168,7 @@ echo
 ##  Download pathogen & link bundled plugins  ##
 #################################################
 
+mkdir $HOME/.vim
 (sudo chown -R $USER $HOME/dotfiles)
 (ln -sf $HOME/dotfiles/vim/autoload $HOME/.vim/autoload)
 (ln -sf $HOME/dotfiles/vim/bundle $HOME/.vim/bundle)
