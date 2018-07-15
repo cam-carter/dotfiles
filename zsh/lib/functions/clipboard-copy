@@ -1,0 +1,39 @@
+#!/bin/zsh
+
+# copies data to clipboard from stdin
+function clipboard-copy() {
+  emulate -L zsh
+
+  local clipper_port=8377
+	local fake_clipboard=/tmp/clipboard-data.txt
+	if is-ssh && is-port-in-use $clipper_port; then
+	  # pipe to the clipper instant and the fake clipboard
+		tee >(nc localhost $clipper_port) "$fake_clipboard"
+		return
+	fi
+
+  if ! has-display; then
+	  # copy to fake_clipboard
+		> fake_clipboard
+		return
+	fi
+
+  if is-darwin; then
+	  pbcopy
+	elif is-cygwin; then
+	  cat > /dev/clipboard
+	else
+	  if command-exists xclip; then
+		  xclip -in -slection clipboard
+		elif command-exists xsel; then
+		  xsel --clipboard --input
+		else
+		  local message="clipboard-copy: PLatform $(uname -s) not supported or "
+			message+="xclip/xsel not installed"
+			print message >&2
+			return 1
+		fi
+	fi
+}
+
+clipboard-copy $@
