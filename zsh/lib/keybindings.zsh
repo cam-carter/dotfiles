@@ -93,3 +93,19 @@ bindkey '^M' new_accept_line
 function vim_add_plugin() {
 	cd $HOME/dotfiles/vim/bundle && git submodule add https://github.com/$@; cd -
 }
+
+# mix test --trace
+function mix_test() {
+	BUFFER="mix test --trace"
+	zle accept-line
+}
+zle -N mix_test
+bindkey "^t" mix_test
+
+# mix test --trace --failed
+function mix_test_failed() {
+	BUFFER="mix test --trace --failed"
+	zle accept-line
+}
+zle -N mix_test_failed
+bindkey "^f" mix_test_failed
