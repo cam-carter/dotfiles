@@ -168,10 +168,13 @@ set tabline=%!Tabline()
 " Style
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+colors zenburn
+
 "diminactive settings
 let g:diminactive_enable_focus = 1
 
 "Syntax highlighting
+"
 if $TERM_PROGRAM == "iTerm.app" && filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background

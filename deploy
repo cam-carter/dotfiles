@@ -168,7 +168,8 @@ if [ ! -d "$HOME/.config/nvim" ]; then
 	mkdir $HOME/.config/nvim
 fi
 (sudo chown -R $USER $HOME/dotfiles)
-(ln -sf $HOME/dotfiles/vim/autoload $HOME/.config/nvim/autoload)
+(ln -sf $HOME/dotfiles/nvim/autoload $HOME/.config/nvim/autoload)
+(ln -sf $HOME/dotfiles/nvim/colors $HOME/.config/nvim/colors)
 (git pull && git submodule update --init --recursive) &> /dev/null
 
 ###########################
