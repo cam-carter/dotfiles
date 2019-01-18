@@ -138,7 +138,7 @@ fi
 #############################
 
 check_for_package zsh
-check_for_package vim
+check_for_package neovim
 check_default_shell
 
 #############################################
