@@ -7,7 +7,7 @@ call plug#begin('~/.vim/plugged')
 if !empty(glob("~/repos/vim-spacemacs"))
   Plug '~/repos/vim-spacemacs'
 else
-  Plug 'jimmay5469/vim-spacemacs'
+  Plug 'cam-carter/vim-spacemacs'
 endif
 
 "Key binding menues
@@ -41,6 +41,7 @@ Plug 'mhinz/vim-signify'
 
 "Syntax hightlighting
 Plug 'sheerun/vim-polyglot'
+Plug 'rhysd/vim-crystal'
 
 "Better autochdir
 Plug 'airblade/vim-rooter'
@@ -56,6 +57,9 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'sbdchd/neoformat'
 
+"Colorschemes
+Plug 'nightsense/cosmic_latte'
+
 call plug#end()
 
 
@@ -63,7 +67,7 @@ call plug#end()
 " Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"fix copy paste error in osx sierra
+" fix copy paste error in osx sierra
 set clipboard=unnamed
 
 "enable mouse click/scroll
@@ -168,8 +172,6 @@ set tabline=%!Tabline()
 " Style
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-colors zenburn
-
 "diminactive settings
 let g:diminactive_enable_focus = 1
 
@@ -194,8 +196,12 @@ if has("gui_running")
   set columns=250
 endif
 
+"Colorscheme
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set background=light
+colorscheme cosmic_latte
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key Bindings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = "\<SPACE>"
@@ -207,6 +213,7 @@ let g:spacemacs#plugins = [
 let g:spacemacs#excludes = [
   \ '^br',
   \ '^fed',
+	\ '^feR',
   \ '^ff',
   \ '^fs',
   \ '^pp',
@@ -214,19 +221,14 @@ let g:spacemacs#excludes = [
 
 nnoremap <LEADER>br :checktime<CR>:e<CR>
 nnoremap <LEADER>fs :wa<CR>
-nnoremap <LEADER>fed :e ~/repos/dotfiles/.vimrc.symlink<CR>
+nnoremap <LEADER>fed :e ~/dotfiles/nvim/init.vim<CR>
+nnoremap <LEADER>feR :source ~/dotfiles/nvim/init.vim<CR>
 nnoremap <LEADER>pp :e ~/repos/
 nnoremap <LEADER>ff :e <C-R>=substitute(expand("%:p:h"), getcwd(), ".", "")<CR>/
 
 "Key binding menues
 nnoremap <silent> <LEADER> :<C-U>LeaderGuide '<SPACE>'<CR>
 vnoremap <silent> <LEADER> :<C-U>LeaderGuideVisual '<SPACE>'<CR>
-
-"Reload vim-spacemacs if it is local
-if !empty(glob("~/repos/vim-spacemacs"))
-  let g:spacemacs#excludes = add(g:spacemacs#excludes, '^feR')
-  nnoremap <LEADER>feR :source ~/.vimrc<CR>:source ~/repos/vim-spacemacs/plugin/spacemacs.vim<CR>
-endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -301,4 +303,9 @@ set foldlevelstart=99
 
 " testing helpers
 nnoremap <LEADER>cp :let @+= ShortFilepath()<CR>
-nnoremap <LEADER>mt :wa<CR>:! mix test <C-R>=ShortFilepath()<CR><CR>
+nnoremap <LEADER>mtt :wa<CR>:! mix test <C-R>=ShortFilepath().":".line(".")<CR><CR>
+nnoremap <LEADER>mtb :wa<CR>:! mix test <C-R>=ShortFilepath()<CR><CR>
+
+" formatting helpers
+nnoremap <LEADER>mff :wa<CR>:! mix format <C-R>=ShortFilepath()<CR><CR>
+nnoremap <LEADER>cff :wa<CR>:! crystal tool format <C-R>=ShortFilepath()<CR><CR>
