@@ -24,6 +24,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'francoiscabrol/ranger.vim'
 
 "Pane navigation
 Plug 'christoomey/vim-tmux-navigator'
@@ -177,7 +178,7 @@ let g:diminactive_enable_focus = 1
 
 "Syntax highlighting
 "
-if $TERM_PROGRAM == "iTerm.app" && filereadable(expand("~/.vimrc_background"))
+if $TERM_PROGRAM == "iTerm.app" && filereadable(expand("~/.vimrc_bthanaelkane/vim-indent-guidesackground"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
@@ -198,6 +199,7 @@ endif
 
 "Colorscheme
 
+set termguicolors
 set background=light
 colorscheme cosmic_latte
 
@@ -211,6 +213,7 @@ let g:spacemacs#plugins = [
   \ 'junegunn/fzf.vim',
 \ ]
 let g:spacemacs#excludes = [
+	\ '^ar',
   \ '^br',
   \ '^fed',
 	\ '^feR',
@@ -219,6 +222,7 @@ let g:spacemacs#excludes = [
   \ '^pp',
 \ ]
 
+nnoremap <LEADER>ar :Ranger<CR>
 nnoremap <LEADER>br :checktime<CR>:e<CR>
 nnoremap <LEADER>fs :wa<CR>
 nnoremap <LEADER>fed :e ~/dotfiles/nvim/init.vim<CR>

@@ -63,6 +63,7 @@ plugins=(
   zsh-autosuggestions
   vi-mode
   web-search
+	jump
 )
 
 source $ZSH/oh-my-zsh.sh
