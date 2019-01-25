@@ -89,7 +89,7 @@ check_default_shell() {
 	if [ -z "${SHELL##*zsh*}" ]; then
 		echo "Default shell already set to zsh."
 	else
-		echo -n "Default shell is not zsh... you wanna make it the default? I reccomend it ;) [Y/n]"
+		echo -n "Default shell is not zsh... you wanna make it the default? I recommend it ;) [Y/n]"
 		stty raw -echo
 		answer=$( while ! head -c 1 | grep -i '[ny]' ; do true ; done )
 		stty $OLD_STTY && echo
@@ -116,7 +116,7 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
-echo "You have initiated the deployment of a very potent collection of tools onto your system: vim, tmux, and zsh..."
+echo "You have initiated the deployment of a very potent collection of tools onto your system: nvim and zsh..."
 printf "\n"
 echo "[1] We've gotta check and see if you already have some of these cool tools. If you do, it only makes you cooler."
 echo "[2] If you don't have some of these tools, then we'll just have to install them won't we?"
@@ -138,9 +138,7 @@ fi
 #############################
 
 check_for_package zsh
-check_for_package vim
-check_for_package emacs
-check_for_package tmux
+check_for_package neovim
 check_default_shell
 
 #############################################
@@ -153,26 +151,25 @@ answer=$(while ! head -c 1 | grep -i '[ny]' ; do true ; done )
 stty $OLD_STTY && echo   
 if echo $answer | grep -iq "^y" ; then
 	mv ~/.zshrc ~/.zshrc.old
-	mv ~/.tmux.conf ~/.tmux.conf.old
-	mv ~/.vimrc ~/.vimrc.old
+	mv ~/.config/nvim/init.vim ~/.config/nvim/init.vim.old
 else
 	echo -e "Oh that's brave... I guess we won't back up those files."
 fi
 
 printf "source $HOME/dotfiles/zsh/lib/zshrc-manager.sh" > ~/.zshrc
-printf "source $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
-printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
+printf "source $HOME/dotfiles/nvim/init.vim" > ~/.config/nvim/init.vim
 echo
 
 #################################################
 ##  Download pathogen & link bundled plugins  ##
 #################################################
 
-mkdir $HOME/.vim
+if [ ! -d "$HOME/.config/nvim" ]; then
+	mkdir $HOME/.config/nvim
+fi
 (sudo chown -R $USER $HOME/dotfiles)
-(ln -sf $HOME/dotfiles/vim/autoload $HOME/.vim/autoload)
-(ln -sf $HOME/dotfiles/vim/bundle $HOME/.vim/bundle)
-# update repo and submodules
+(ln -sf $HOME/dotfiles/nvim/autoload $HOME/.config/nvim/autoload)
+(ln -sf $HOME/dotfiles/nvim/colors $HOME/.config/nvim/colors)
 (git pull && git submodule update --init --recursive) &> /dev/null
 
 ###########################
@@ -181,6 +178,11 @@ mkdir $HOME/.vim
 
 {
 	source ~/.zshrc
-	source ~/.vimrc
-	tmux source-file ~/.tmux.conf
+	source ~/.config/nvim/init.vim
 } &> /dev/null
+
+##########################
+## Install NVIM Plugins ##
+##########################
+echo "Installing nvim plugins..."
+nvim +PlugInstall +qall 
