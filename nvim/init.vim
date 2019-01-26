@@ -25,6 +25,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'terryma/vim-multiple-cursors'
 
 "Pane navigation
 Plug 'christoomey/vim-tmux-navigator'
@@ -218,13 +219,11 @@ let g:spacemacs#excludes = [
   \ '^fed',
 	\ '^feR',
   \ '^ff',
-  \ '^fs',
   \ '^pp',
 \ ]
 
 nnoremap <LEADER>ar :Ranger<CR>
 nnoremap <LEADER>br :checktime<CR>:e<CR>
-nnoremap <LEADER>fs :wa<CR>
 nnoremap <LEADER>fed :e ~/dotfiles/nvim/init.vim<CR>
 nnoremap <LEADER>feR :source ~/dotfiles/nvim/init.vim<CR>
 nnoremap <LEADER>pp :e ~/repos/
