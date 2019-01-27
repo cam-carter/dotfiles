@@ -225,6 +225,7 @@ let g:spacemacs#excludes = [
 \ ]
 
 nnoremap <LEADER>ar :Ranger<CR>
+nnoremap <LEADER>ag :Goyo<CR>
 nnoremap <LEADER>br :checktime<CR>:e<CR>
 nnoremap <LEADER>fed :e ~/dotfiles/nvim/init.vim<CR>
 nnoremap <LEADER>feR :source ~/dotfiles/nvim/init.vim<CR>

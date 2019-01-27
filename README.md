@@ -66,7 +66,7 @@ All Vim plugins in this package are managed with [vim-plug](https://github.com/j
 - [vitality.vim](https://github.com/tpope/sjl/vitality.vim)
 
 ##### Git
-- [fugitive.vim](https://github.com/vim-fugitive) - a Git wrapper so awesome, it should be illegal
+- [fugitive.vim](https://github.com/vim-fugitive)
 - [vim-signify](https://github.com/mhinz/vim-signify)
 
 ##### Autocomplete
@@ -80,5 +80,5 @@ All Vim plugins in this package are managed with [vim-plug](https://github.com/j
 
 ##### Misc.
 - [vim-rooter](https://github.com/airblade/vim-rooter)
-- [goyo.vim](https://github.com/junegunn/goyo.vim) - distraction-free writing in vim
-	- [limelight.vim](https://github.com/junegunn/limelight.vim) - hyperfocus-writing in vim
+- [goyo.vim](https://github.com/junegunn/goyo.vim)
+	- [limelight.vim](https://github.com/junegunn/limelight.vim)
