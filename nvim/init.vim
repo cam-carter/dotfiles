@@ -43,7 +43,6 @@ Plug 'mhinz/vim-signify'
 
 "Syntax hightlighting
 Plug 'sheerun/vim-polyglot'
-Plug 'rhysd/vim-crystal'
 
 "Better autochdir
 Plug 'airblade/vim-rooter'
@@ -61,6 +60,9 @@ Plug 'sbdchd/neoformat'
 
 "Colorschemes
 Plug 'nightsense/cosmic_latte'
+
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
