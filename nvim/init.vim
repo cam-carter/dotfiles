@@ -64,6 +64,8 @@ Plug 'nightsense/cosmic_latte'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
+Plug 'mtth/scratch.vim'
+
 call plug#end()
 
 
