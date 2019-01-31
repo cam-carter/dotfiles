@@ -27,9 +27,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'terryma/vim-multiple-cursors'
 
-"Pane navigation
-Plug 'christoomey/vim-tmux-navigator'
-
 "Theme
 "Plug 'romainl/Apprentice'
 Plug 'chriskempson/base16-vim'
@@ -65,6 +62,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 Plug 'mtth/scratch.vim'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
