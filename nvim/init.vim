@@ -1,7 +1,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/dotfiles/nvim/plugged')
 
 "Spacemacs (use local vim-spacemacs if possible)
 if !empty(glob("~/repos/vim-spacemacs"))
@@ -53,7 +53,8 @@ Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
-Plug 'sbdchd/neoformat'
+Plug 'w0rp/ale'
+" Plug 'sbdchd/neoformat'
 
 "Colorschemes
 Plug 'nightsense/cosmic_latte'
@@ -63,6 +64,7 @@ Plug 'junegunn/limelight.vim'
 
 Plug 'mtth/scratch.vim'
 Plug 'lervag/vimtex'
+Plug 'christoomey/vim-system-copy'
 
 call plug#end()
 
@@ -70,6 +72,8 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:ale_competion_enabled=1
 
 " fix copy paste error in osx sierra
 set clipboard=unnamed
@@ -118,8 +122,20 @@ if has('nvim')
 endif
 let g:closetag_filenames = "*.html,*.js,*.jsx,*.eex"
 
+let g:deoplete#disable_auto_complete = 1
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" function! Multiple_cursors_before()
+" 	if exists('g:deoplete#disable_auto_complete') 
+" 	 let g:deoplete#disable_auto_complete = 1
+"  endif
+" endfunction
+" function! Multiple_cursors_after()
+" 	if exists('g:deoplete#disable_auto_complete')
+" 	  let g:deoplete#disable_auto_complete = 0
+" 	endif
+" endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Statusline/Tabline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! ShortPath(path)
@@ -204,7 +220,9 @@ endif
 
 set termguicolors
 set background=light
-colorscheme cosmic_latte
+" colorscheme base16-atelierdune
+colorscheme office-light
+" colorscheme cosmic_latte
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key Bindings
@@ -287,22 +305,10 @@ augroup reload
 augroup end
 
 " auto format on save
-nnoremap <LEADER>taf :call AutoFormatToggle()<CR>
-function! AutoFormatToggle()
-  if get(b:, 'auto_format', 1)
-    let b:auto_format = 0
-    echo 'Auto Format OFF'
-  else
-    let b:auto_format = 1
-    echo 'Auto Format ON'
-  endif
-endfunction
-augroup fmt
-  autocmd!
-  if get(b:, 'auto_format', 1)
-    autocmd BufWritePre * Neoformat
-  endif
-augroup end
+let g:ale_fixers = {
+\	'elixir': ['mix_format'],
+\}
+" let g:ale_fix_on_save=1
 
 " folding
 set foldlevelstart=99
