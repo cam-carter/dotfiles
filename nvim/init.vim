@@ -227,7 +227,8 @@ endif
 set termguicolors
 set background=light
 " colorscheme base16-atelierdune
-colorscheme office-light
+" colorscheme office-light
+colorscheme zenburn
 " colorscheme cosmic_latte
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -318,8 +319,14 @@ augroup end
 " auto format on save
 let g:ale_fixers = {
 \	'elixir': ['mix_format'],
+\ 'javascript': ['prettier'],
+\ 'typescript': ['prettier'],
+\ 'css': ['prettier'],
 \}
-" let g:ale_fix_on_save=1
+
+let g:ale_linters_explicit = 1
+
+let g:ale_fix_on_save=1
 
 " folding
 set foldlevelstart=99
